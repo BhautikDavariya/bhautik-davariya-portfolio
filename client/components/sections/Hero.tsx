@@ -237,26 +237,25 @@ const Hero = () => {
             {socialLinks.map((social, index) => {
               const Icon = social.icon;
               return (
-                <LiquidGlass
+                <motion.div
                   key={social.label}
-                  variant="button"
-                  shimmer
-                  asChild
+                  whileHover={{ scale: 1.2, y: -5 }}
+                  whileTap={{ scale: 0.9 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 1.6 + index * 0.1 }}
                 >
-                  <motion.a
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.2, y: -5 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="group p-4 inline-block"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 1.6 + index * 0.1 }}
-                  >
-                    <Icon className="w-6 h-6 text-primary group-hover:text-primary transition-colors" />
-                  </motion.a>
-                </LiquidGlass>
+                  <LiquidGlass variant="button" shimmer className="group p-4">
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      <Icon className="w-6 h-6 text-primary group-hover:text-primary transition-colors" />
+                    </a>
+                  </LiquidGlass>
+                </motion.div>
               );
             })}
           </motion.div>
