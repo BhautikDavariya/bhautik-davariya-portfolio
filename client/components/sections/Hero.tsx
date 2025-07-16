@@ -1,5 +1,12 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Github, Linkedin, Mail, ChevronDown, Code, Sparkles } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  ChevronDown,
+  Code,
+  Sparkles,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LiquidGlass } from "@/components/ui/liquid-glass";
 import { useRef } from "react";
@@ -273,7 +280,7 @@ const Hero = () => {
           </Button>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
