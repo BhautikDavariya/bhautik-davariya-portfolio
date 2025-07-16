@@ -1,7 +1,9 @@
 import { motion, HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { ReactNode } from "react";
 
-interface LiquidGlassProps extends HTMLMotionProps<"div"> {
+interface LiquidGlassProps extends Omit<HTMLMotionProps<"div">, "children"> {
+  children: ReactNode;
   variant?: "default" | "card" | "button" | "overlay";
   blur?: "sm" | "md" | "lg" | "xl";
   opacity?: number;
