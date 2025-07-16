@@ -1,8 +1,19 @@
-import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ChevronDown } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Github, Linkedin, Mail, ChevronDown, Code, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { LiquidGlass } from "@/components/ui/liquid-glass";
+import { useRef } from "react";
 
 const Hero = () => {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+
   const socialLinks = [
     {
       icon: Github,
@@ -21,6 +32,8 @@ const Hero = () => {
     },
   ];
 
+  const techIcons = ["⚛️", "🔷", "🟢", "🍃", "🎨", "⚡"];
+
   const scrollToAbout = () => {
     const aboutSection = document.getElementById("about");
     if (aboutSection) {
@@ -29,31 +42,95 @@ const Hero = () => {
   };
 
   return (
-    <section
+    <motion.section
+      ref={ref}
       id="home"
+      style={{ y, opacity }}
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" />
+      {/* Enhanced background with liquid glass effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10" />
 
-      {/* Animated background elements */}
+      {/* Large liquid glass orbs */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(50)].map((_, i) => (
+        {[...Array(8)].map((_, i) => (
           <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-primary/10 rounded-full"
+            key={`orb-${i}`}
+            className="absolute rounded-full"
+            style={{
+              background: `radial-gradient(circle, ${
+                i % 2 === 0
+                  ? "rgba(139, 69, 255, 0.15)"
+                  : "rgba(99, 102, 241, 0.15)"
+              }, transparent 70%)`,
+              width: Math.random() * 500 + 200,
+              height: Math.random() * 500 + 200,
+              left: `${Math.random() * 120 - 10}%`,
+              top: `${Math.random() * 120 - 10}%`,
+              filter: "blur(60px)",
+            }}
+            animate={{
+              x: [0, Math.random() * 200 - 100],
+              y: [0, Math.random() * 200 - 100],
+              scale: [1, Math.random() * 0.5 + 0.8, 1],
+            }}
+            transition={{
+              duration: Math.random() * 15 + 10,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Floating tech icons */}
+      <div className="absolute inset-0 overflow-hidden">
+        {techIcons.map((icon, i) => (
+          <motion.div
+            key={`tech-${i}`}
+            className="absolute text-4xl opacity-20"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
             animate={{
-              y: [0, -30, 0],
-              opacity: [0, 1, 0],
+              y: [0, -50, 0],
+              rotate: [0, 360],
+              scale: [1, 1.2, 1],
             }}
             transition={{
-              duration: 3 + Math.random() * 2,
+              duration: Math.random() * 8 + 6,
               repeat: Infinity,
               delay: Math.random() * 2,
+              ease: "easeInOut",
+            }}
+          >
+            {icon}
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Animated particles */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(100)].map((_, i) => (
+          <motion.div
+            key={`particle-${i}`}
+            className="absolute w-1 h-1 bg-primary/20 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -100, 0],
+              opacity: [0, 1, 0],
+              scale: [0, 1, 0],
+            }}
+            transition={{
+              duration: Math.random() * 4 + 3,
+              repeat: Infinity,
+              delay: Math.random() * 5,
+              ease: "easeOut",
             }}
           />
         ))}
