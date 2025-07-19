@@ -6,110 +6,276 @@ import { Button } from "@/components/ui/button";
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("all");
 
-  const projects = [
-    {
-      id: 1,
-      title: "E-Commerce Platform",
-      description:
-        "A full-stack e-commerce solution with payment integration, inventory management, and real-time notifications.",
-      image: "/placeholder.svg",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      category: "fullstack",
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example",
-      featured: true,
-      stats: {
-        duration: "3 months",
-        team: "4 developers",
-        lines: "25k+ lines",
-      },
+  // const projects = [
+  //   {
+  //     id: 1,
+  //     title: "InfyPOS - Advanced Laravel POS with Inventory Management",
+  //     description:
+  //       "This is the Invoice Management System where users can manage all the invoices in one place and digitally. The client will get its separate login panel from where he can see the lists of his invoices and do payments. Here are some Key Features and Concepts that InfyInvoices provides. InfyInvoices – Laravel Invoice Management System.",
+  //     image: "/placeholder.svg",
+  //     tags: ["React", "PHP", "MySql", "Redux", "Bootstrap"],
+  //     category: "Fot",
+  //     liveUrl: "https://infypos.infyom.com/",
+  //     githubUrl: "https://github.com/BhautikDavariya",
+  //     featured: true,
+  //     stats: {
+  //       duration: "3 months",
+  //       team: "2 developers",
+  //       lines: "25k+ lines",
+  //     },
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Task Management App",
+  //     description:
+  //       "A collaborative project management tool with real-time updates, drag-and-drop functionality, and team collaboration features.",
+  //     image: "/placeholder.svg",
+  //     tags: ["React", "TypeScript", "Socket.io", "PostgreSQL"],
+  //     category: "frontend",
+  //     liveUrl: "https://example.com",
+  //     githubUrl: "https://github.com/BhautikDavariya",
+  //     featured: true,
+  //     stats: {
+  //       duration: "2 months",
+  //       team: "Solo project",
+  //       lines: "18k+ lines",
+  //     },
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Weather Dashboard",
+  //     description:
+  //       "A beautiful weather application with location-based forecasts, interactive maps, and historical data visualization.",
+  //     image: "/placeholder.svg",
+  //     tags: ["React", "Chart.js", "Weather API", "TailwindCSS"],
+  //     category: "frontend",
+  //     liveUrl: "https://example.com",
+  //     githubUrl: "https://github.com/BhautikDavariya",
+  //     featured: false,
+  //     stats: {
+  //       duration: "3 weeks",
+  //       team: "Solo project",
+  //       lines: "8k+ lines",
+  //     },
+  //   },
+  //   {
+  //     id: 4,
+  //     title: "Blog CMS",
+  //     description:
+  //       "A content management system for bloggers with rich text editing, media uploads, and SEO optimization.",
+  //     image: "/placeholder.svg",
+  //     tags: ["Next.js", "Prisma", "PostgreSQL", "AWS S3"],
+  //     category: "fullstack",
+  //     liveUrl: "https://example.com",
+  //     githubUrl: "https://github.com/BhautikDavariya",
+  //     featured: false,
+  //     stats: {
+  //       duration: "6 weeks",
+  //       team: "2 developers",
+  //       lines: "15k+ lines",
+  //     },
+  //   },
+  //   {
+  //     id: 5,
+  //     title: "API Gateway",
+  //     description:
+  //       "A scalable microservices API gateway with authentication, rate limiting, and comprehensive logging.",
+  //     image: "/placeholder.svg",
+  //     tags: ["Node.js", "Express", "Redis", "Docker"],
+  //     category: "backend",
+  //     liveUrl: null,
+  //     githubUrl: "https://github.com/BhautikDavariya",
+  //     featured: false,
+  //     stats: {
+  //       duration: "4 weeks",
+  //       team: "3 developers",
+  //       lines: "12k+ lines",
+  //     },
+  //   },
+  //   {
+  //     id: 6,
+  //     title: "Real-time Chat App",
+  //     description:
+  //       "A modern chat application with end-to-end encryption, file sharing, and video calling capabilities.",
+  //     image: "/placeholder.svg",
+  //     tags: ["React", "Socket.io", "WebRTC", "MongoDB"],
+  //     category: "fullstack",
+  //     liveUrl: "https://example.com",
+  //     githubUrl: "https://github.com/BhautikDavariya",
+  //     featured: true,
+  //     stats: {
+  //       duration: "5 weeks",
+  //       team: "Solo project",
+  //       lines: "20k+ lines",
+  //     },
+  //   },
+  // ];
+
+const projects = [
+  {
+    id: 1,
+    title: "Asset Management",
+    company: "SMIXIT SOLUTIONS PRIVATE LIMITED",
+    description:
+      "Developed a React application to streamline asset and portfolio tracking. Includes portfolio analysis, reporting charts, and overall portfolio health monitoring.",
+    image: "/placeholder.svg",
+    tags: ["React", "Charts.js", "TailwindCSS"],
+    category: "frontend",
+    liveUrl: null,
+    githubUrl: null,
+    featured: true,
+    stats: {
+      duration: "2 months",
+      team: "2 developers",
+      lines: "15k+ lines",
     },
-    {
-      id: 2,
-      title: "Task Management App",
-      description:
-        "A collaborative project management tool with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      image: "/placeholder.svg",
-      tags: ["React", "TypeScript", "Socket.io", "PostgreSQL"],
-      category: "frontend",
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example",
-      featured: true,
-      stats: {
-        duration: "2 months",
-        team: "Solo project",
-        lines: "18k+ lines",
-      },
+  },
+  {
+    id: 2,
+    title: "Udhyog Ecom",
+    company: "SMIXIT SOLUTIONS PRIVATE LIMITED",
+    description:
+      "Built an e-commerce platform for Sand Selica suppliers using Next.js and Redux. Includes intuitive customer experience and admin inventory management tools.",
+    image: "/placeholder.svg",
+    tags: ["Next.js", "Redux", "TailwindCSS"],
+    category: "fullstack",
+    liveUrl: null,
+    githubUrl: null,
+    featured: true,
+    stats: {
+      duration: "3 months",
+      team: "3 developers",
+      lines: "22k+ lines",
     },
-    {
-      id: 3,
-      title: "Weather Dashboard",
-      description:
-        "A beautiful weather application with location-based forecasts, interactive maps, and historical data visualization.",
-      image: "/placeholder.svg",
-      tags: ["React", "Chart.js", "Weather API", "TailwindCSS"],
-      category: "frontend",
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example",
-      featured: false,
-      stats: {
-        duration: "3 weeks",
-        team: "Solo project",
-        lines: "8k+ lines",
-      },
+  },
+  {
+    id: 3,
+    title: "Meta-Snap-Editor",
+    company: "SMIXIT SOLUTIONS PRIVATE LIMITED",
+    description:
+      "A web application to manage metadata for canvas headings and create SEO-optimized meta URLs using React.",
+    image: "/placeholder.svg",
+    tags: ["React", "SEO", "TailwindCSS"],
+    category: "frontend",
+    liveUrl: null,
+    githubUrl: null,
+    featured: false,
+    stats: {
+      duration: "1 month",
+      team: "Solo project",
+      lines: "12k+ lines",
     },
-    {
-      id: 4,
-      title: "Blog CMS",
-      description:
-        "A content management system for bloggers with rich text editing, media uploads, and SEO optimization.",
-      image: "/placeholder.svg",
-      tags: ["Next.js", "Prisma", "PostgreSQL", "AWS S3"],
-      category: "fullstack",
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example",
-      featured: false,
-      stats: {
-        duration: "6 weeks",
-        team: "2 developers",
-        lines: "15k+ lines",
-      },
+  },
+  {
+    id: 4,
+    title: "Charity Management",
+    company: "SMIXIT SOLUTIONS PRIVATE LIMITED",
+    description:
+      "A React.js application for charities to manage donors and donations efficiently.",
+    image: "/placeholder.svg",
+    tags: ["React", "Node.js", "MongoDB"],
+    category: "fullstack",
+    liveUrl: null,
+    githubUrl: null,
+    featured: false,
+    stats: {
+      duration: "1.5 months",
+      team: "2 developers",
+      lines: "14k+ lines",
     },
-    {
-      id: 5,
-      title: "API Gateway",
-      description:
-        "A scalable microservices API gateway with authentication, rate limiting, and comprehensive logging.",
-      image: "/placeholder.svg",
-      tags: ["Node.js", "Express", "Redis", "Docker"],
-      category: "backend",
-      liveUrl: null,
-      githubUrl: "https://github.com/example",
-      featured: false,
-      stats: {
-        duration: "4 weeks",
-        team: "3 developers",
-        lines: "12k+ lines",
-      },
+  },
+  {
+    id: 5,
+    title: "QR Builder Application",
+    company: "INFYOM TECHNOLOGIES PRIVATE LIMITED",
+    description:
+      "Developed a feature-rich QR code builder with URL shortener, analytics, and customizable QR designs using React.",
+    image: "/placeholder.svg",
+    tags: ["React", "Authentication", "TailwindCSS"],
+    category: "fullstack",
+    liveUrl: null,
+    githubUrl: null,
+    featured: true,
+    stats: {
+      duration: "2 months",
+      team: "Solo project",
+      lines: "18k+ lines",
     },
-    {
-      id: 6,
-      title: "Real-time Chat App",
-      description:
-        "A modern chat application with end-to-end encryption, file sharing, and video calling capabilities.",
-      image: "/placeholder.svg",
-      tags: ["React", "Socket.io", "WebRTC", "MongoDB"],
-      category: "fullstack",
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example",
-      featured: true,
-      stats: {
-        duration: "5 weeks",
-        team: "Solo project",
-        lines: "20k+ lines",
-      },
+  },
+  {
+    id: 6,
+    title: "Tone Compass",
+    company: "SMIXIT SOLUTIONS PRIVATE LIMITED",
+    description:
+      "React application for color selection, shade exploration, and generating harmonious color palettes for designers.",
+    image: "/placeholder.svg",
+    tags: ["React", "Color Theory", "TailwindCSS"],
+    category: "frontend",
+    liveUrl: null,
+    githubUrl: null,
+    featured: false,
+    stats: {
+      duration: "3 weeks",
+      team: "Solo project",
+      lines: "8k+ lines",
     },
-  ];
+  },
+  {
+    id: 7,
+    title: "Blow30",
+    company: "NETIZENS TECHNOLOGIES PRIVATE LIMITED",
+    description:
+      "Job search platform built with CapacitorJS, Next.js, Tailwind CSS for employees and employers to streamline hiring.",
+    image: "/placeholder.svg",
+    tags: ["Next.js", "CapacitorJS", "TailwindCSS"],
+    category: "fullstack",
+    liveUrl: null,
+    githubUrl: null,
+    featured: true,
+    stats: {
+      duration: "2 months",
+      team: "3 developers",
+      lines: "20k+ lines",
+    },
+  },
+  {
+    id: 8,
+    title: "FMCG",
+    company: "NETIZENS TECHNOLOGIES PRIVATE LIMITED",
+    description:
+      "Warehouse management and sales system using Ionic and CapacitorJS for FMCG businesses.",
+    image: "/placeholder.svg",
+    tags: ["Ionic", "CapacitorJS", "Mobile"],
+    category: "backend",
+    liveUrl: null,
+    githubUrl: null,
+    featured: false,
+    stats: {
+      duration: "6 weeks",
+      team: "2 developers",
+      lines: "16k+ lines",
+    },
+  },
+  {
+    id: 9,
+    title: "Darjee",
+    company: "NETIZENS TECHNOLOGIES PRIVATE LIMITED",
+    description:
+      "Dynamic e-commerce platform for clothing brands with role-based access using Next.js, Tailwind CSS, and ShadCN UI.",
+    image: "/placeholder.svg",
+    tags: ["Next.js", "TailwindCSS", "ShadCN UI"],
+    category: "fullstack",
+    liveUrl: null,
+    githubUrl: null,
+    featured: true,
+    stats: {
+      duration: "3 months",
+      team: "4 developers",
+      lines: "25k+ lines",
+    },
+  },
+];
+
 
   const filters = [
     { id: "all", label: "All Projects", count: projects.length },
@@ -294,10 +460,11 @@ const Projects = () => {
                 )}
 
                 {/* Project image */}
-                <div className="relative h-48 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+                <div className="relative hidden h-48  overflow-hidden"> 
+                  {/* h-48 */}
+                  {/* <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
                     <div className="text-6xl opacity-40">🚀</div>
-                  </div>
+                  </div> */}
 
                   {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
@@ -404,7 +571,7 @@ const Projects = () => {
               asChild
             >
               <a
-                href="https://github.com"
+                href="https://github.com/BhautikDavariya"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2"

@@ -78,7 +78,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
               className="mb-8"
             >
               <div className="text-4xl font-bold text-primary mb-2">
-                &lt;DevName /&gt;
+                &lt;Bhautik /&gt;
               </div>
               <div className="text-muted-foreground">
                 Crafting Digital Experiences

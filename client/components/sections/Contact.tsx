@@ -29,72 +29,103 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "john.developer@email.com",
-      href: "mailto:john.developer@email.com",
+      value: "bhautikmerndevelopers@email.com",
+      href: "mailto:bhautikmerndevelopers@email.com",
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567",
+      value: "+91 9904656110",
+      href: "tel:+919904656110",
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "San Francisco, CA",
-      href: "#",
+      value: "surat gujarat, IN",
+      href: "https://www.google.com/maps/place/Surat,+Gujarat/@21.1594406,72.6574719,11z/data=!3m1!4b1!4m6!3m5!1s0x3be04e59411d1563:0xfe4558290938b042!8m2!3d21.1702401!4d72.8310607!16zL20vMDFoMWhu?entry=ttu&g_ep=EgoyMDI1MDcxNi4wIKXMDSoASAFQAw%3D%3D",
     },
-    {
-      icon: Calendar,
-      label: "Schedule",
-      value: "Book a call",
-      href: "https://calendly.com/example",
-    },
+    // {
+    //   icon: Calendar,
+    //   label: "Available On",
+    //   value: "call & mail",
+    //   href: "#",
+    // },
   ];
 
   const socialLinks = [
-    {
+    {            
       icon: Github,
       label: "GitHub",
-      href: "https://github.com/example",
+      href: "https://github.com/BhautikDavariya",
       color: "hover:text-gray-400",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "https://linkedin.com/in/example",
+      href: "https://www.linkedin.com/in/bhautik-davariya-15b2b722a/",
       color: "hover:text-blue-400",
     },
-    {
-      icon: Twitter,
-      label: "Twitter",
-      href: "https://twitter.com/example",
-      color: "hover:text-blue-400",
-    },
+    // {
+    //   icon: Twitter,
+    //   label: "Twitter",
+    //   href: "https://twitter.com/example",
+    //   color: "hover:text-blue-400",
+    // },
     {
       icon: Mail,
       label: "Email",
-      href: "mailto:john.developer@email.com",
+      href: "mailto:bhautikmerndevelopers@email.com",
       color: "hover:text-red-400",
     },
   ];
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+  //   // Simulate form submission
+  //   await new Promise((resolve) => setTimeout(resolve, 2000));
 
-    setIsSubmitted(true);
-    setIsSubmitting(false);
+  //   setIsSubmitted(true);
+  //   setIsSubmitting(false);
 
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 3000);
-  };
+  //   // Reset form after 3 seconds
+  //   setTimeout(() => {
+  //     setIsSubmitted(false);
+  //     setFormData({ name: "", email: "", subject: "", message: "" });
+  //   }, 3000);
+  // };
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  try {
+    const response = await fetch("https://formspree.io/f/mldldykr", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      setIsSubmitted(true);
+    } else {
+      alert("Error sending message.");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Failed to send message.");
+  }
+
+  setIsSubmitting(false);
+  setTimeout(() => {
+    setIsSubmitted(false);
+    setFormData({ name: "", email: "", subject: "", message: "" });
+  }, 3000);
+};
+
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,

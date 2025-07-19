@@ -48,7 +48,7 @@ const Footer = () => {
             className="space-y-4"
           >
             <div className="font-bold text-xl text-primary">
-              &lt;DevName /&gt;
+              &lt;Bhautik /&gt;
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Full Stack MERN Developer passionate about creating exceptional
@@ -120,7 +120,7 @@ const Footer = () => {
           className="border-t border-border mt-8 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4"
         >
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            © {new Date().getFullYear()} John Developer. Built with
+            © {new Date().getFullYear()} Bhautik Developer. Built with
             <Heart className="w-4 h-4 text-red-500" />
             and React.
           </div>

@@ -10,12 +10,14 @@ const Skills = () => {
       skills: [
         { name: "React", level: 95, icon: "⚛️" },
         { name: "TypeScript", level: 90, icon: "🔷" },
-        { name: "Next.js", level: 88, icon: "▲" },
+        { name: "Next.js", level: 95, icon: "▲" },
         { name: "TailwindCSS", level: 92, icon: "🎨" },
         { name: "Framer Motion", level: 85, icon: "🎬" },
         { name: "HTML5", level: 98, icon: "🏗️" },
         { name: "CSS3", level: 95, icon: "✨" },
         { name: "Sass/SCSS", level: 88, icon: "💅" },
+        { name: "Capacitor", level: 70, icon: "⚡" },
+        { name: "Redux", level: 85, icon: "🤖" },
       ],
     },
     backend: {
@@ -24,8 +26,8 @@ const Skills = () => {
         { name: "Node.js", level: 90, icon: "🟢" },
         { name: "Express.js", level: 88, icon: "🚀" },
         { name: "MongoDB", level: 85, icon: "🍃" },
-        { name: "PostgreSQL", level: 80, icon: "🐘" },
-        { name: "GraphQL", level: 75, icon: "📊" },
+        // { name: "PostgreSQL", level: 80, icon: "🐘" },
+        // { name: "GraphQL", level: 75, icon: "📊" },
         { name: "REST APIs", level: 92, icon: "🔗" },
         { name: "JWT", level: 85, icon: "🔐" },
         { name: "Socket.io", level: 78, icon: "🔌" },
@@ -35,13 +37,15 @@ const Skills = () => {
       title: "Tools & Technologies",
       skills: [
         { name: "Git", level: 92, icon: "📚" },
-        { name: "Docker", level: 80, icon: "🐳" },
-        { name: "AWS", level: 75, icon: "☁️" },
+        // { name: "Docker", level: 80, icon: "🐳" },
+        // { name: "AWS", level: 75, icon: "☁️" },
         { name: "Vercel", level: 90, icon: "▲" },
         { name: "Figma", level: 85, icon: "🎨" },
         { name: "VS Code", level: 95, icon: "📝" },
         { name: "Postman", level: 88, icon: "📮" },
         { name: "Webpack", level: 78, icon: "📦" },
+        { name: "Android", level: 50, icon: "🔄" },
+        { name: "iOS", level: 50, icon: "🍏" },
       ],
     },
   };
@@ -227,8 +231,8 @@ const Skills = () => {
         >
           {[
             { number: "3+", label: "Years Experience" },
-            { number: "50+", label: "Projects Completed" },
-            { number: "15+", label: "Technologies" },
+            { number: "15+", label: "Projects Completed" },
+            { number: "9+", label: "Technologies" },
             { number: "99%", label: "Client Satisfaction" },
           ].map((stat, index) => (
             <motion.div

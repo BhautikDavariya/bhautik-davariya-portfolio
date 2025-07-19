@@ -45,10 +45,16 @@ const Navigation = ({
     setIsMobileMenuOpen(false);
   };
 
-  const handleResumeDownload = () => {
-    // Placeholder for resume download functionality
-    console.log("Resume download triggered");
-  };
+ const handleResumeDownload = () => {
+  const fileUrl = "https://drive.google.com/uc?export=download&id=1_MBjV_27kdg6lME8f8H7HH4UYqvm-A0J";
+  const link = document.createElement("a");
+  link.href = fileUrl;
+  link.download = "My_Resume.pdf"; // Optional: Set a default filename
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
 
   return (
     <>
@@ -70,7 +76,7 @@ const Navigation = ({
               className="font-bold text-xl text-primary cursor-pointer"
               onClick={() => scrollToSection("home")}
             >
-              &lt;DevName /&gt;
+              &lt;Bhautik /&gt;
             </motion.div>
 
             {/* Desktop Navigation */}

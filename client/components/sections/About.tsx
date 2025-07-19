@@ -1,33 +1,35 @@
 import { motion } from "framer-motion";
-import { Code, Database, Globe, Smartphone } from "lucide-react";
+import meImage from "@/asset/images/bhautik_d.jpeg"
+// import { Code, Database, Globe, Smartphone } from "lucide-react";
 
 const About = () => {
-  const highlights = [
-    {
-      icon: Code,
-      title: "Frontend Development",
-      description:
-        "Building responsive and interactive user interfaces with React, TypeScript, and modern CSS frameworks.",
-    },
-    {
-      icon: Database,
-      title: "Backend Development",
-      description:
-        "Creating robust APIs and server-side applications using Node.js, Express, and MongoDB.",
-    },
-    {
-      icon: Globe,
-      title: "Full Stack Solutions",
-      description:
-        "End-to-end web application development from concept to deployment and maintenance.",
-    },
-    {
-      icon: Smartphone,
-      title: "Mobile-First Design",
-      description:
-        "Ensuring seamless experiences across all devices with responsive and accessible design principles.",
-    },
-  ];
+const highlights = [
+  {
+    icon: "💻", // Frontend Development
+    title: "Frontend Development",
+    description:
+      "Building responsive and interactive user interfaces with React, TypeScript, and modern CSS frameworks.",
+  },
+  {
+    icon: "🗄️", // Backend Development
+    title: "Backend Development",
+    description:
+      "Creating robust APIs and server-side applications using Node.js, Express, and MongoDB.",
+  },
+  {
+    icon: "🌐", // Full Stack Solutions
+    title: "Full Stack Solutions",
+    description:
+      "End-to-end web application development from concept to deployment and maintenance.",
+  },
+  {
+    icon: "📱", // Mobile-First Design
+    title: "Mobile-First Design",
+    description:
+      "Ensuring seamless experiences across all devices with responsive and accessible design principles.",
+  },
+];
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -80,7 +82,9 @@ const About = () => {
             <div className="relative max-w-md mx-auto lg:mx-0">
               {/* Profile image placeholder */}
               <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 p-8 flex items-center justify-center">
-                <div className="text-6xl lg:text-8xl text-primary/40">👨‍💻</div>
+                <div className="text-6xl lg:text-8xl text-primary/40">
+                    <img src={meImage} alt="meImg" title="meImg" />
+                </div>
               </div>
 
               {/* Floating stats */}
@@ -102,7 +106,7 @@ const About = () => {
                 transition={{ duration: 0.6, delay: 1 }}
                 className="absolute -bottom-4 -left-4 bg-background border border-border rounded-lg p-4 shadow-lg"
               >
-                <div className="text-2xl font-bold text-primary">50+</div>
+                <div className="text-2xl font-bold text-primary">15+</div>
                 <div className="text-sm text-muted-foreground">Projects</div>
               </motion.div>
             </div>
@@ -148,6 +152,8 @@ const About = () => {
                 "Node.js",
                 "MongoDB",
                 "Express",
+                "Ionic",
+                "Capacitor.js",
               ].map((tech, index) => (
                 <motion.span
                   key={tech}
@@ -186,7 +192,8 @@ const About = () => {
                   transition={{ duration: 0.3 }}
                   className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4"
                 >
-                  <Icon className="w-8 h-8 text-primary" />
+                  {highlight.icon}
+                  {/* <Icon className="w-8 h-8 text-primary" /> */}
                 </motion.div>
                 <h4 className="text-lg font-semibold mb-3">
                   {highlight.title}

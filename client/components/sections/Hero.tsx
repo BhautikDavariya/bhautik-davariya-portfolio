@@ -24,17 +24,17 @@ const Hero = () => {
   const socialLinks = [
     {
       icon: Github,
-      href: "https://github.com",
+      href: "https://github.com/BhautikDavariya",
       label: "GitHub",
     },
     {
       icon: Linkedin,
-      href: "https://linkedin.com",
+      href: "https://www.linkedin.com/in/bhautik-davariya-15b2b722a/",
       label: "LinkedIn",
     },
     {
       icon: Mail,
-      href: "mailto:contact@example.com",
+      href: "mailto:bhautikmerndevelopers@gmail.com",
       label: "Email",
     },
   ];
@@ -167,7 +167,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent"
           >
-            John Developer
+            Bhautik Developer
           </motion.h1>
 
           {/* Title */}
