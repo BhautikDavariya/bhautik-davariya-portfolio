@@ -46,7 +46,7 @@ const Navigation = ({
   };
 
  const handleResumeDownload = () => {
-  const fileUrl = "https://drive.google.com/uc?export=download&id=1_MBjV_27kdg6lME8f8H7HH4UYqvm-A0J";
+  const fileUrl = "https://drive.google.com/file/d/1piLFz_XEOsD5wT69oaeJ8LUTsuYkOsnC/view?usp=drivesdk";
   const link = document.createElement("a");
   link.href = fileUrl;
   link.download = "My_Resume.pdf"; // Optional: Set a default filename
