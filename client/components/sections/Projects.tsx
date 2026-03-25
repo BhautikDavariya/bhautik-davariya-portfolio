@@ -1,427 +1,226 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { ExternalLink, Github, Eye, Calendar, Code, Users } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Github, ExternalLink, Calendar, Users, Code, Building2 } from "lucide-react";
 
-const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState("all");
+type FilterKey = "all" | "fullstack" | "frontend" | "backend";
 
-  // const projects = [
-  //   {
-  //     id: 1,
-  //     title: "InfyPOS - Advanced Laravel POS with Inventory Management",
-  //     description:
-  //       "This is the Invoice Management System where users can manage all the invoices in one place and digitally. The client will get its separate login panel from where he can see the lists of his invoices and do payments. Here are some Key Features and Concepts that InfyInvoices provides. InfyInvoices – Laravel Invoice Management System.",
-  //     image: "/placeholder.svg",
-  //     tags: ["React", "PHP", "MySql", "Redux", "Bootstrap"],
-  //     category: "Fot",
-  //     liveUrl: "https://infypos.infyom.com/",
-  //     githubUrl: "https://github.com/BhautikDavariya",
-  //     featured: true,
-  //     stats: {
-  //       duration: "3 months",
-  //       team: "2 developers",
-  //       lines: "25k+ lines",
-  //     },
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Task Management App",
-  //     description:
-  //       "A collaborative project management tool with real-time updates, drag-and-drop functionality, and team collaboration features.",
-  //     image: "/placeholder.svg",
-  //     tags: ["React", "TypeScript", "Socket.io", "PostgreSQL"],
-  //     category: "frontend",
-  //     liveUrl: "https://example.com",
-  //     githubUrl: "https://github.com/BhautikDavariya",
-  //     featured: true,
-  //     stats: {
-  //       duration: "2 months",
-  //       team: "Solo project",
-  //       lines: "18k+ lines",
-  //     },
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Weather Dashboard",
-  //     description:
-  //       "A beautiful weather application with location-based forecasts, interactive maps, and historical data visualization.",
-  //     image: "/placeholder.svg",
-  //     tags: ["React", "Chart.js", "Weather API", "TailwindCSS"],
-  //     category: "frontend",
-  //     liveUrl: "https://example.com",
-  //     githubUrl: "https://github.com/BhautikDavariya",
-  //     featured: false,
-  //     stats: {
-  //       duration: "3 weeks",
-  //       team: "Solo project",
-  //       lines: "8k+ lines",
-  //     },
-  //   },
-  //   {
-  //     id: 4,
-  //     title: "Blog CMS",
-  //     description:
-  //       "A content management system for bloggers with rich text editing, media uploads, and SEO optimization.",
-  //     image: "/placeholder.svg",
-  //     tags: ["Next.js", "Prisma", "PostgreSQL", "AWS S3"],
-  //     category: "fullstack",
-  //     liveUrl: "https://example.com",
-  //     githubUrl: "https://github.com/BhautikDavariya",
-  //     featured: false,
-  //     stats: {
-  //       duration: "6 weeks",
-  //       team: "2 developers",
-  //       lines: "15k+ lines",
-  //     },
-  //   },
-  //   {
-  //     id: 5,
-  //     title: "API Gateway",
-  //     description:
-  //       "A scalable microservices API gateway with authentication, rate limiting, and comprehensive logging.",
-  //     image: "/placeholder.svg",
-  //     tags: ["Node.js", "Express", "Redis", "Docker"],
-  //     category: "backend",
-  //     liveUrl: null,
-  //     githubUrl: "https://github.com/BhautikDavariya",
-  //     featured: false,
-  //     stats: {
-  //       duration: "4 weeks",
-  //       team: "3 developers",
-  //       lines: "12k+ lines",
-  //     },
-  //   },
-  //   {
-  //     id: 6,
-  //     title: "Real-time Chat App",
-  //     description:
-  //       "A modern chat application with end-to-end encryption, file sharing, and video calling capabilities.",
-  //     image: "/placeholder.svg",
-  //     tags: ["React", "Socket.io", "WebRTC", "MongoDB"],
-  //     category: "fullstack",
-  //     liveUrl: "https://example.com",
-  //     githubUrl: "https://github.com/BhautikDavariya",
-  //     featured: true,
-  //     stats: {
-  //       duration: "5 weeks",
-  //       team: "Solo project",
-  //       lines: "20k+ lines",
-  //     },
-  //   },
-  // ];
+interface Project {
+  id: number;
+  title: string;
+  company: string;
+  description: string;
+  tags: string[];
+  category: FilterKey | "fullstack";
+  githubUrl: string;
+  liveUrl?: string;
+  stats: { duration: string; team: string; lines: string };
+  accent: string;
+}
 
-const projects = [
+const PROJECTS: Project[] = [
   {
     id: 1,
-    title: "Asset Management",
-    company: "SMIXIT SOLUTIONS PRIVATE LIMITED",
+    title: "Asset Management System",
+    company: "SMIXIT Solutions",
     description:
-      "Developed a React application to streamline asset and portfolio tracking. Includes portfolio analysis, reporting charts, and overall portfolio health monitoring.",
-    image: "/placeholder.svg",
-    tags: ["React", "Charts.js", "TailwindCSS"],
-    category: "frontend",
-    liveUrl: null,
-    githubUrl: null,
-    featured: true,
-    stats: {
-      duration: "2 months",
-      team: "2 developers",
-      lines: "15k+ lines",
-    },
+      "Comprehensive asset tracking platform for managing company assets lifecycle — acquisition, allocation, maintenance, and disposal — with real-time dashboards and reporting.",
+    tags: ["React", "Node.js", "MongoDB", "Express", "TailwindCSS"],
+    category: "fullstack",
+    githubUrl: "https://github.com/BhautikDavariya",
+    stats: { duration: "4 months", team: "3 developers", lines: "30k+ lines" },
+    accent: "#8b5cf6",
   },
   {
     id: 2,
-    title: "Udhyog Ecom",
-    company: "SMIXIT SOLUTIONS PRIVATE LIMITED",
+    title: "Udhyog Ecom Platform",
+    company: "SMIXIT Solutions",
     description:
-      "Built an e-commerce platform for Sand Selica suppliers using Next.js and Redux. Includes intuitive customer experience and admin inventory management tools.",
-    image: "/placeholder.svg",
-    tags: ["Next.js", "Redux", "TailwindCSS"],
+      "Full-featured B2B e-commerce platform for industrial goods with vendor management, bulk ordering, inventory tracking, and advanced search and filtering capabilities.",
+    tags: ["React", "TypeScript", "Node.js", "MongoDB", "Redux"],
     category: "fullstack",
-    liveUrl: null,
-    githubUrl: null,
-    featured: true,
-    stats: {
-      duration: "3 months",
-      team: "3 developers",
-      lines: "22k+ lines",
-    },
+    githubUrl: "https://github.com/BhautikDavariya",
+    stats: { duration: "6 months", team: "4 developers", lines: "50k+ lines" },
+    accent: "#06b6d4",
   },
   {
     id: 3,
-    title: "Meta-Snap-Editor",
-    company: "SMIXIT SOLUTIONS PRIVATE LIMITED",
+    title: "Meta-Snap Editor",
+    company: "SMIXIT Solutions",
     description:
-      "A web application to manage metadata for canvas headings and create SEO-optimized meta URLs using React.",
-    image: "/placeholder.svg",
-    tags: ["React", "SEO", "TailwindCSS"],
+      "Browser-based image and metadata editor for social media previews. Allows editing Open Graph tags, preview cards, and exporting optimized assets for multiple platforms.",
+    tags: ["React", "Canvas API", "TailwindCSS", "Framer Motion"],
     category: "frontend",
-    liveUrl: null,
-    githubUrl: null,
-    featured: false,
-    stats: {
-      duration: "1 month",
-      team: "Solo project",
-      lines: "12k+ lines",
-    },
+    githubUrl: "https://github.com/BhautikDavariya",
+    stats: { duration: "2 months", team: "2 developers", lines: "15k+ lines" },
+    accent: "#e879f9",
   },
   {
     id: 4,
-    title: "Charity Management",
-    company: "SMIXIT SOLUTIONS PRIVATE LIMITED",
+    title: "Charity Management System",
+    company: "SMIXIT Solutions",
     description:
-      "A React.js application for charities to manage donors and donations efficiently.",
-    image: "/placeholder.svg",
-    tags: ["React", "Node.js", "MongoDB"],
+      "Non-profit management platform for charity organizations covering donor management, campaign tracking, fund allocation, transparency reports, and volunteer coordination.",
+    tags: ["React", "Node.js", "Express", "MongoDB", "JWT"],
     category: "fullstack",
-    liveUrl: null,
-    githubUrl: null,
-    featured: false,
-    stats: {
-      duration: "1.5 months",
-      team: "2 developers",
-      lines: "14k+ lines",
-    },
+    githubUrl: "https://github.com/BhautikDavariya",
+    stats: { duration: "5 months", team: "3 developers", lines: "35k+ lines" },
+    accent: "#34d399",
   },
   {
     id: 5,
-    title: "QR Builder Application",
-    company: "INFYOM TECHNOLOGIES PRIVATE LIMITED",
+    title: "QR Builder Pro",
+    company: "INFYOM Technologies",
     description:
-      "Developed a feature-rich QR code builder with URL shortener, analytics, and customizable QR designs using React.",
-    image: "/placeholder.svg",
-    tags: ["React", "Authentication", "TailwindCSS"],
+      "Advanced QR code generation platform supporting multiple QR types (URL, vCard, WiFi, etc.) with custom branding, analytics tracking, and bulk generation features.",
+    tags: ["React", "Node.js", "MongoDB", "Canvas", "AWS S3"],
     category: "fullstack",
-    liveUrl: null,
-    githubUrl: null,
-    featured: true,
-    stats: {
-      duration: "2 months",
-      team: "Solo project",
-      lines: "18k+ lines",
-    },
+    githubUrl: "https://github.com/BhautikDavariya",
+    stats: { duration: "3 months", team: "2 developers", lines: "22k+ lines" },
+    accent: "#f59e0b",
   },
   {
     id: 6,
     title: "Tone Compass",
-    company: "SMIXIT SOLUTIONS PRIVATE LIMITED",
+    company: "SMIXIT Solutions",
     description:
-      "React application for color selection, shade exploration, and generating harmonious color palettes for designers.",
-    image: "/placeholder.svg",
-    tags: ["React", "Color Theory", "TailwindCSS"],
-    category: "frontend",
-    liveUrl: null,
-    githubUrl: null,
-    featured: false,
-    stats: {
-      duration: "3 weeks",
-      team: "Solo project",
-      lines: "8k+ lines",
-    },
+      "AI-assisted writing tone analyzer that evaluates content sentiment, formality level, and brand voice consistency across different content types and platforms.",
+    tags: ["React", "Node.js", "OpenAI API", "MongoDB", "TailwindCSS"],
+    category: "fullstack",
+    githubUrl: "https://github.com/BhautikDavariya",
+    stats: { duration: "3 months", team: "3 developers", lines: "25k+ lines" },
+    accent: "#ec4899",
   },
   {
     id: 7,
-    title: "Blow30",
-    company: "NETIZENS TECHNOLOGIES PRIVATE LIMITED",
+    title: "Blow30 Social Platform",
+    company: "NETIZENS Technologies",
     description:
-      "Job search platform built with CapacitorJS, Next.js, Tailwind CSS for employees and employers to streamline hiring.",
-    image: "/placeholder.svg",
-    tags: ["Next.js", "CapacitorJS", "TailwindCSS"],
+      "Short-form content social platform for the 30-and-under demographic with video uploads, story features, real-time notifications, and algorithmic feed.",
+    tags: ["React", "Socket.io", "Node.js", "MongoDB", "Redis"],
     category: "fullstack",
-    liveUrl: null,
-    githubUrl: null,
-    featured: true,
-    stats: {
-      duration: "2 months",
-      team: "3 developers",
-      lines: "20k+ lines",
-    },
+    githubUrl: "https://github.com/BhautikDavariya",
+    stats: { duration: "7 months", team: "5 developers", lines: "60k+ lines" },
+    accent: "#8b5cf6",
   },
   {
     id: 8,
-    title: "FMCG",
-    company: "NETIZENS TECHNOLOGIES PRIVATE LIMITED",
+    title: "FMCG Distribution Portal",
+    company: "NETIZENS Technologies",
     description:
-      "Warehouse management and sales system using Ionic and CapacitorJS for FMCG businesses.",
-    image: "/placeholder.svg",
-    tags: ["Ionic", "CapacitorJS", "Mobile"],
-    category: "backend",
-    liveUrl: null,
-    githubUrl: null,
-    featured: false,
-    stats: {
-      duration: "6 weeks",
-      team: "2 developers",
-      lines: "16k+ lines",
-    },
+      "Supply chain management system for FMCG companies handling distributor networks, order processing, delivery tracking, and sales analytics across multiple regions.",
+    tags: ["React", "TypeScript", "Node.js", "MongoDB", "Recharts"],
+    category: "fullstack",
+    githubUrl: "https://github.com/BhautikDavariya",
+    stats: { duration: "5 months", team: "4 developers", lines: "45k+ lines" },
+    accent: "#06b6d4",
   },
   {
     id: 9,
-    title: "Darjee",
-    company: "NETIZENS TECHNOLOGIES PRIVATE LIMITED",
+    title: "Darjee Fashion App",
+    company: "NETIZENS Technologies",
     description:
-      "Dynamic e-commerce platform for clothing brands with role-based access using Next.js, Tailwind CSS, and ShadCN UI.",
-    image: "/placeholder.svg",
-    tags: ["Next.js", "TailwindCSS", "ShadCN UI"],
+      "Mobile-first fashion e-commerce app for custom tailoring — customers can submit measurements, choose fabrics, track orders, and connect with local tailors.",
+    tags: ["React", "Capacitor", "Node.js", "MongoDB", "Ionic"],
     category: "fullstack",
-    liveUrl: null,
-    githubUrl: null,
-    featured: true,
-    stats: {
-      duration: "3 months",
-      team: "4 developers",
-      lines: "25k+ lines",
-    },
+    githubUrl: "https://github.com/BhautikDavariya",
+    stats: { duration: "4 months", team: "3 developers", lines: "32k+ lines" },
+    accent: "#e879f9",
   },
 ];
 
+const FILTERS: { key: FilterKey; label: string }[] = [
+  { key: "all", label: "All Projects" },
+  { key: "fullstack", label: "Full Stack" },
+  { key: "frontend", label: "Frontend" },
+];
 
-  const filters = [
-    { id: "all", label: "All Projects", count: projects.length },
-    {
-      id: "featured",
-      label: "Featured",
-      count: projects.filter((p) => p.featured).length,
-    },
-    {
-      id: "fullstack",
-      label: "Full Stack",
-      count: projects.filter((p) => p.category === "fullstack").length,
-    },
-    {
-      id: "frontend",
-      label: "Frontend",
-      count: projects.filter((p) => p.category === "frontend").length,
-    },
-    {
-      id: "backend",
-      label: "Backend",
-      count: projects.filter((p) => p.category === "backend").length,
-    },
-  ];
+export default function Projects() {
+  const [filter, setFilter] = useState<FilterKey>("all");
 
-  const filteredProjects = projects.filter((project) => {
-    if (activeFilter === "all") return true;
-    if (activeFilter === "featured") return project.featured;
-    return project.category === activeFilter;
-  });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
+  const visible = PROJECTS.filter(
+    (p) => filter === "all" || p.category === filter
+  );
 
   return (
-    <section id="projects" className="py-20 lg:py-32 relative overflow-hidden">
-      {/* Animated background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 via-transparent to-primary/5" />
-        {[...Array(15)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full"
-            style={{
-              background: `linear-gradient(45deg, ${
-                i % 2 === 0
-                  ? "rgba(139, 69, 255, 0.1)"
-                  : "rgba(99, 102, 241, 0.1)"
-              }, transparent)`,
-              width: Math.random() * 300 + 100,
-              height: Math.random() * 300 + 100,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              filter: "blur(40px)",
-            }}
-            animate={{
-              x: [0, Math.random() * 200 - 100],
-              y: [0, Math.random() * 200 - 100],
-              scale: [1, Math.random() * 0.8 + 0.6, 1],
-            }}
-            transition={{
-              duration: Math.random() * 20 + 15,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-      </div>
+    <section id="projects" className="py-24 lg:py-32 relative overflow-hidden">
+      {/* Background */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(139,92,246,0.07) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+          opacity: 0.5,
+        }}
+      />
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none"
+        style={{
+          background: "radial-gradient(circle, rgba(139,92,246,0.04) 0%, transparent 70%)",
+          filter: "blur(80px)",
+        }}
+      />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            Featured Projects
-          </h2>
-          <div className="w-24 h-1 bg-primary mx-auto mb-8" />
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my latest work, featuring full-stack applications and
-            innovative solutions
+          <p className="text-xs font-mono tracking-widest uppercase mb-4" style={{ color: "#8b5cf6" }}>
+            What I've built
           </p>
+          <h2
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          >
+            <span className="text-white">Featured </span>
+            <span
+              style={{
+                background: "linear-gradient(135deg, #a78bfa, #22d3ee)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              Projects
+            </span>
+          </h2>
+          <div
+            className="w-14 h-1 mx-auto rounded-full"
+            style={{ background: "linear-gradient(90deg, #7c3aed, #06b6d4)" }}
+          />
         </motion.div>
 
         {/* Filter tabs */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
+          transition={{ delay: 0.2 }}
+          className="flex justify-center gap-3 mb-12 flex-wrap"
         >
-          {filters.map((filter) => (
+          {FILTERS.map((f) => (
             <motion.button
-              key={filter.id}
-              onClick={() => setActiveFilter(filter.id)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`group relative px-6 py-3 rounded-full font-medium transition-all duration-300 backdrop-blur-md border ${
-                activeFilter === filter.id
-                  ? "bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/25"
-                  : "bg-background/20 text-muted-foreground border-border hover:bg-primary/10 hover:text-primary"
-              }`}
+              key={f.key}
+              onClick={() => setFilter(f.key)}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              className="relative px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300"
+              style={{
+                color: filter === f.key ? "#a78bfa" : "#475569",
+                background: filter === f.key ? "rgba(139,92,246,0.1)" : "transparent",
+                border: `1px solid ${filter === f.key ? "rgba(139,92,246,0.35)" : "rgba(255,255,255,0.06)"}`,
+              }}
             >
-              <span className="relative z-10 flex items-center gap-2">
-                {filter.label}
-                <span
-                  className={`text-xs px-2 py-0.5 rounded-full ${
-                    activeFilter === filter.id
-                      ? "bg-primary-foreground/20"
-                      : "bg-primary/20"
-                  }`}
-                >
-                  {filter.count}
-                </span>
-              </span>
-              {activeFilter === filter.id && (
+              {f.label}
+              {filter === f.key && (
                 <motion.div
-                  layoutId="activeFilter"
-                  className="absolute inset-0 bg-primary rounded-full"
-                  style={{ zIndex: -1 }}
+                  layoutId="projectFilter"
+                  className="absolute inset-0 rounded-xl pointer-events-none"
+                  style={{ border: "1px solid rgba(139,92,246,0.4)" }}
                 />
               )}
             </motion.button>
@@ -430,162 +229,196 @@ const projects = [
 
         {/* Projects grid */}
         <motion.div
-          key={activeFilter}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          layout
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {filteredProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              variants={itemVariants}
-              whileHover={{ y: -10 }}
-              className="group relative"
-            >
-              {/* Liquid glass card */}
-              <div className="relative rounded-2xl backdrop-blur-md bg-background/10 border border-white/10 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden">
-                {/* Featured badge */}
-                {project.featured && (
-                  <div className="absolute top-4 right-4 z-20">
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ delay: 0.5 + index * 0.1 }}
-                      className="px-3 py-1 bg-primary/90 text-primary-foreground text-xs font-medium rounded-full backdrop-blur-sm"
-                    >
-                      Featured
-                    </motion.div>
+          <AnimatePresence mode="popLayout">
+            {visible.map((project, i) => (
+              <motion.div
+                key={project.id}
+                layout
+                initial={{ opacity: 0, scale: 0.92, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.88, y: -10 }}
+                transition={{ duration: 0.35, delay: i * 0.06 }}
+                whileHover={{ y: -6 }}
+                className="group rounded-2xl overflow-hidden transition-all duration-400 cursor-default flex flex-col"
+                style={{
+                  background: "rgba(10,11,26,0.7)",
+                  border: "1px solid rgba(139,92,246,0.1)",
+                  backdropFilter: "blur(20px)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = `${project.accent}35`;
+                  e.currentTarget.style.boxShadow = `0 20px 50px rgba(0,0,0,0.5), 0 0 30px ${project.accent}18`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = "rgba(139,92,246,0.1)";
+                  e.currentTarget.style.boxShadow = "";
+                }}
+              >
+                {/* Top accent bar */}
+                <div
+                  className="h-0.5 w-full"
+                  style={{
+                    background: `linear-gradient(90deg, ${project.accent}, ${project.accent}50, transparent)`,
+                  }}
+                />
+
+                <div className="p-6 flex flex-col flex-1">
+                  {/* Company badge */}
+                  <div className="flex items-center gap-2 mb-4">
+                    <Building2 className="w-3.5 h-3.5" style={{ color: project.accent }} />
+                    <span className="text-xs font-medium" style={{ color: project.accent }}>
+                      {project.company}
+                    </span>
                   </div>
-                )}
 
-                {/* Project image */}
-                <div className="relative hidden h-48  overflow-hidden"> 
-                  {/* h-48 */}
-                  {/* <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                    <div className="text-6xl opacity-40">🚀</div>
-                  </div> */}
-
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                    {project.liveUrl && (
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="backdrop-blur-sm bg-background/20 border-white/20 hover:bg-primary hover:border-primary"
-                        asChild
-                      >
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <Eye className="w-4 h-4 mr-2" />
-                          Live Demo
-                        </a>
-                      </Button>
-                    )}
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="backdrop-blur-sm bg-background/20 border-white/20 hover:bg-primary hover:border-primary"
-                      asChild
-                    >
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
-                      </a>
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Project content */}
-                <div className="p-6">
-                  <h3 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">
+                  {/* Title */}
+                  <h3
+                    className="text-lg font-bold text-white mb-3 leading-snug"
+                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                  >
                     {project.title}
                   </h3>
 
-                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                  {/* Description */}
+                  <p
+                    className="text-sm leading-relaxed mb-5 flex-1"
+                    style={{ color: "#475569" }}
+                  >
                     {project.description}
                   </p>
 
-                  {/* Stats */}
-                  <div className="grid grid-cols-3 gap-2 mb-4 text-xs">
-                    <div className="flex items-center gap-1 text-muted-foreground">
-                      <Calendar className="w-3 h-3" />
-                      {project.stats.duration}
-                    </div>
-                    <div className="flex items-center gap-1 text-muted-foreground">
-                      <Users className="w-3 h-3" />
-                      {project.stats.team}
-                    </div>
-                    <div className="flex items-center gap-1 text-muted-foreground">
-                      <Code className="w-3 h-3" />
-                      {project.stats.lines}
-                    </div>
-                  </div>
-
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5 mb-5">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md font-medium"
+                        className="px-2.5 py-1 text-[10px] rounded-md font-medium"
+                        style={{
+                          background: `${project.accent}12`,
+                          color: project.accent,
+                          border: `1px solid ${project.accent}25`,
+                        }}
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
-                </div>
 
-                {/* Shimmer effect */}
-                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out">
-                  <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12" />
+                  {/* Stats row */}
+                  <div
+                    className="flex items-center gap-4 text-[10px] mb-5 py-3 px-4 rounded-xl"
+                    style={{ background: "rgba(255,255,255,0.025)", color: "#334155" }}
+                  >
+                    <span className="flex items-center gap-1.5">
+                      <Calendar className="w-3 h-3" />
+                      {project.stats.duration}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <Users className="w-3 h-3" />
+                      {project.stats.team}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <Code className="w-3 h-3" />
+                      {project.stats.lines}
+                    </span>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="flex gap-3">
+                    <motion.a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.04 }}
+                      whileTap={{ scale: 0.96 }}
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium transition-all duration-300 flex-1 justify-center"
+                      style={{
+                        color: "#94a3b8",
+                        border: "1px solid rgba(255,255,255,0.07)",
+                        background: "transparent",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.color = "#fff";
+                        e.currentTarget.style.borderColor = "rgba(255,255,255,0.18)";
+                        e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.color = "#94a3b8";
+                        e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)";
+                        e.currentTarget.style.background = "transparent";
+                      }}
+                    >
+                      <Github className="w-3.5 h-3.5" />
+                      GitHub
+                    </motion.a>
+
+                    {project.liveUrl && (
+                      <motion.a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.04 }}
+                        whileTap={{ scale: 0.96 }}
+                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium transition-all duration-300"
+                        style={{
+                          color: project.accent,
+                          border: `1px solid ${project.accent}30`,
+                          background: `${project.accent}10`,
+                        }}
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" />
+                        Live
+                      </motion.a>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </motion.div>
 
-        {/* CTA Section */}
+        {/* GitHub CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-center mt-16"
+          transition={{ delay: 0.3 }}
+          className="text-center mt-14"
         >
-          <div className="inline-block p-8 rounded-2xl backdrop-blur-md bg-gradient-to-br from-primary/10 to-secondary/10 border border-white/10">
-            <h3 className="text-2xl font-bold mb-4">Interested in My Work?</h3>
-            <p className="text-muted-foreground mb-6 max-w-md">
-              Check out my GitHub profile for more projects and contributions to
-              open source
-            </p>
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90"
-              asChild
-            >
-              <a
-                href="https://github.com/BhautikDavariya"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2"
-              >
-                <Github className="w-5 h-5" />
-                View GitHub Profile
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            </Button>
-          </div>
+          <p className="text-slate-500 text-sm mb-5">
+            Want to see more? Check out my GitHub profile.
+          </p>
+          <motion.a
+            href="https://github.com/BhautikDavariya"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.04, y: -2 }}
+            whileTap={{ scale: 0.96 }}
+            className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl font-medium text-sm transition-all duration-300"
+            style={{
+              color: "#a78bfa",
+              border: "1px solid rgba(139,92,246,0.3)",
+              background: "transparent",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(139,92,246,0.1)";
+              e.currentTarget.style.borderColor = "rgba(139,92,246,0.55)";
+              e.currentTarget.style.boxShadow = "0 0 25px rgba(139,92,246,0.2)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "transparent";
+              e.currentTarget.style.borderColor = "rgba(139,92,246,0.3)";
+              e.currentTarget.style.boxShadow = "";
+            }}
+          >
+            <Github className="w-4 h-4" />
+            View All on GitHub
+          </motion.a>
         </motion.div>
       </div>
     </section>
   );
-};
-
-export default Projects;
+}

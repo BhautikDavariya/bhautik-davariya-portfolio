@@ -1,221 +1,254 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Moon, Sun, Menu, X, Download } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Menu, X, Download, Code2 } from "lucide-react";
 
 interface NavigationProps {
   activeSection: string;
   setActiveSection: (section: string) => void;
-  darkMode: boolean;
-  toggleDarkMode: () => void;
 }
 
-const Navigation = ({
-  activeSection,
-  setActiveSection,
-  darkMode,
-  toggleDarkMode,
-}: NavigationProps) => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+const navItems = [
+  { id: "home", label: "Home", num: "01" },
+  { id: "about", label: "About", num: "02" },
+  { id: "skills", label: "Skills", num: "03" },
+  { id: "projects", label: "Projects", num: "04" },
+  { id: "contact", label: "Contact", num: "05" },
+];
 
-  const navItems = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "skills", label: "Skills" },
-    { id: "projects", label: "Projects" },
-    { id: "contact", label: "Contact" },
-  ];
+const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 30);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setActiveSection(sectionId);
-    }
-    setIsMobileMenuOpen(false);
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setActiveSection(id);
+    setMobileOpen(false);
   };
 
- const handleResumeDownload = () => {
-  const fileUrl = "https://drive.google.com/file/d/1piLFz_XEOsD5wT69oaeJ8LUTsuYkOsnC/view?usp=drivesdk";
-  const link = document.createElement("a");
-  link.href = fileUrl;
-  link.download = "My_Resume.pdf"; // Optional: Set a default filename
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-};
-
+  const openResume = () => {
+    window.open(
+      "https://drive.google.com/file/d/1piLFz_XEOsD5wT69oaeJ8LUTsuYkOsnC/view?usp=drivesdk",
+      "_blank"
+    );
+  };
 
   return (
     <>
       <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-background/80 backdrop-blur-md border-b border-border"
-            : "bg-transparent"
+            ? "py-3 backdrop-blur-xl border-b"
+            : "py-5 bg-transparent"
         }`}
+        style={
+          isScrolled
+            ? {
+                background: "rgba(5, 6, 14, 0.85)",
+                borderColor: "rgba(139, 92, 246, 0.12)",
+              }
+            : {}
+        }
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="font-bold text-xl text-primary cursor-pointer"
-              onClick={() => scrollToSection("home")}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          {/* Logo */}
+          <motion.button
+            onClick={() => scrollTo("home")}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.96 }}
+            className="flex items-center gap-2.5 group"
+          >
+            <div
+              className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(139,92,246,0.5)]"
+              style={{
+                background: "linear-gradient(135deg, #7c3aed, #06b6d4)",
+              }}
             >
-              &lt;Bhautik /&gt;
-            </motion.div>
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              {navItems.map((item) => (
-                <motion.button
-                  key={item.id}
-                  whileHover={{ y: -2 }}
-                  whileTap={{ y: 0 }}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`relative text-sm font-medium transition-colors duration-200 ${
-                    activeSection === item.id
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {item.label}
-                  {activeSection === item.id && (
-                    <motion.div
-                      layoutId="activeTab"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
-                      initial={false}
-                    />
-                  )}
-                </motion.button>
-              ))}
+              <Code2 className="w-4 h-4 text-white" />
             </div>
+            <span className="font-mono text-lg font-bold tracking-tight">
+              <span style={{ color: "#a78bfa" }}>&lt;</span>
+              <span className="text-white">Bhautik</span>
+              <span style={{ color: "#22d3ee" }}> /&gt;</span>
+            </span>
+          </motion.button>
 
-            {/* Right side buttons */}
-            <div className="flex items-center space-x-4">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleResumeDownload}
-                className="hidden sm:flex items-center gap-2"
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-1">
+            {navItems.map((item) => (
+              <motion.button
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                whileHover={{ y: -1 }}
+                whileTap={{ y: 0 }}
+                className="relative px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
+                style={{
+                  color: activeSection === item.id ? "#a78bfa" : "#64748b",
+                }}
               >
-                <Download className="w-4 h-4" />
-                Resume
-              </Button>
+                <span className="font-mono text-[10px] mr-1" style={{ color: "#8b5cf650" }}>
+                  {item.num}.
+                </span>
+                {item.label}
+                {activeSection === item.id && (
+                  <motion.div
+                    layoutId="navActive"
+                    className="absolute inset-0 rounded-lg"
+                    style={{
+                      background: "rgba(139, 92, 246, 0.1)",
+                      border: "1px solid rgba(139, 92, 246, 0.2)",
+                    }}
+                    initial={false}
+                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                  />
+                )}
+              </motion.button>
+            ))}
+          </div>
 
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={toggleDarkMode}
-                className="p-2"
-              >
-                <motion.div
-                  initial={false}
-                  animate={{ rotate: darkMode ? 180 : 0 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                >
-                  {darkMode ? (
-                    <Sun className="w-4 h-4" />
-                  ) : (
-                    <Moon className="w-4 h-4" />
-                  )}
-                </motion.div>
-              </Button>
+          {/* Resume button */}
+          <div className="flex items-center gap-3">
+            <motion.button
+              onClick={openResume}
+              whileHover={{ scale: 1.04, y: -1 }}
+              whileTap={{ scale: 0.96 }}
+              className="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300"
+              style={{
+                color: "#a78bfa",
+                border: "1px solid rgba(139, 92, 246, 0.3)",
+                background: "transparent",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "rgba(139, 92, 246, 0.1)";
+                e.currentTarget.style.borderColor = "rgba(139, 92, 246, 0.55)";
+                e.currentTarget.style.boxShadow = "0 0 20px rgba(139, 92, 246, 0.2)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.borderColor = "rgba(139, 92, 246, 0.3)";
+                e.currentTarget.style.boxShadow = "";
+              }}
+            >
+              <Download className="w-4 h-4" />
+              Resume
+            </motion.button>
 
-              {/* Mobile menu button */}
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden p-2"
-              >
-                <motion.div
-                  animate={{ rotate: isMobileMenuOpen ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {isMobileMenuOpen ? (
-                    <X className="w-4 h-4" />
-                  ) : (
-                    <Menu className="w-4 h-4" />
-                  )}
-                </motion.div>
-              </Button>
-            </div>
+            {/* Mobile toggle */}
+            <motion.button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="md:hidden p-2 rounded-lg transition-all duration-200"
+              style={{
+                border: "1px solid rgba(100, 116, 139, 0.3)",
+                color: "#94a3b8",
+              }}
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                {mobileOpen ? (
+                  <motion.div
+                    key="close"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <X className="w-5 h-5" />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="menu"
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Menu className="w-5 h-5" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.button>
           </div>
         </div>
 
-        {/* Mobile Navigation Menu */}
+        {/* Mobile menu */}
         <AnimatePresence>
-          {isMobileMenuOpen && (
+          {mobileOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="md:hidden bg-background/95 backdrop-blur-md border-b border-border"
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="md:hidden overflow-hidden border-t"
+              style={{
+                background: "rgba(5, 6, 14, 0.96)",
+                backdropFilter: "blur(20px)",
+                borderColor: "rgba(139, 92, 246, 0.12)",
+              }}
             >
-              <div className="px-4 py-4 space-y-3">
-                {navItems.map((item, index) => (
+              <div className="px-4 py-4 space-y-1">
+                {navItems.map((item, i) => (
                   <motion.button
                     key={item.id}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -16 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    onClick={() => scrollToSection(item.id)}
-                    className={`block w-full text-left py-2 px-3 rounded-md transition-colors ${
-                      activeSection === item.id
-                        ? "bg-primary/10 text-primary"
-                        : "text-muted-foreground hover:text-foreground hover:bg-accent"
-                    }`}
+                    transition={{ delay: i * 0.07 }}
+                    onClick={() => scrollTo(item.id)}
+                    className="w-full text-left py-3 px-4 rounded-xl flex items-center gap-3 transition-all duration-200"
+                    style={{
+                      color: activeSection === item.id ? "#a78bfa" : "#64748b",
+                      background:
+                        activeSection === item.id
+                          ? "rgba(139, 92, 246, 0.1)"
+                          : "transparent",
+                      border:
+                        activeSection === item.id
+                          ? "1px solid rgba(139, 92, 246, 0.2)"
+                          : "1px solid transparent",
+                    }}
                   >
-                    {item.label}
+                    <span className="font-mono text-[10px] text-violet-700">{item.num}</span>
+                    <span className="font-medium text-sm">{item.label}</span>
                   </motion.button>
                 ))}
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
+                <motion.button
+                  initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: navItems.length * 0.1 }}
-                  className="pt-2"
+                  transition={{ delay: navItems.length * 0.07 }}
+                  onClick={openResume}
+                  className="w-full flex items-center justify-center gap-2 py-3 px-4 mt-2 rounded-xl text-sm font-medium transition-all"
+                  style={{
+                    color: "#a78bfa",
+                    border: "1px solid rgba(139, 92, 246, 0.3)",
+                  }}
                 >
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={handleResumeDownload}
-                    className="w-full flex items-center justify-center gap-2"
-                  >
-                    <Download className="w-4 h-4" />
-                    Download Resume
-                  </Button>
-                </motion.div>
+                  <Download className="w-4 h-4" />
+                  Download Resume
+                </motion.button>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </motion.nav>
 
-      {/* Mobile menu overlay */}
+      {/* Mobile overlay */}
       <AnimatePresence>
-        {isMobileMenuOpen && (
+        {mobileOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="md:hidden fixed inset-0 bg-black/20 z-40"
+            onClick={() => setMobileOpen(false)}
+            className="md:hidden fixed inset-0 z-40"
+            style={{ background: "rgba(0,0,0,0.4)" }}
           />
         )}
       </AnimatePresence>
