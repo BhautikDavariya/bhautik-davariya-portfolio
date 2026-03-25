@@ -28,7 +28,7 @@ const PROJECTS: Project[] = [
     category: "fullstack",
     githubUrl: "https://github.com/BhautikDavariya",
     stats: { duration: "4 months", team: "3 developers", lines: "30k+ lines" },
-    accent: "#8b5cf6",
+    accent: "#6366f1",
   },
   {
     id: 2,
@@ -40,7 +40,7 @@ const PROJECTS: Project[] = [
     category: "fullstack",
     githubUrl: "https://github.com/BhautikDavariya",
     stats: { duration: "6 months", team: "4 developers", lines: "50k+ lines" },
-    accent: "#06b6d4",
+    accent: "#10b981",
   },
   {
     id: 3,
@@ -100,7 +100,7 @@ const PROJECTS: Project[] = [
     category: "fullstack",
     githubUrl: "https://github.com/BhautikDavariya",
     stats: { duration: "7 months", team: "5 developers", lines: "60k+ lines" },
-    accent: "#8b5cf6",
+    accent: "#6366f1",
   },
   {
     id: 8,
@@ -112,7 +112,7 @@ const PROJECTS: Project[] = [
     category: "fullstack",
     githubUrl: "https://github.com/BhautikDavariya",
     stats: { duration: "5 months", team: "4 developers", lines: "45k+ lines" },
-    accent: "#06b6d4",
+    accent: "#10b981",
   },
   {
     id: 9,
@@ -147,7 +147,7 @@ export default function Projects() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(139,92,246,0.07) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(99,102,241,0.07) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
           opacity: 0.5,
         }}
@@ -155,7 +155,7 @@ export default function Projects() {
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(139,92,246,0.04) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(99,102,241,0.04) 0%, transparent 70%)",
           filter: "blur(80px)",
         }}
       />
@@ -169,7 +169,7 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <p className="text-xs font-mono tracking-widest uppercase mb-4" style={{ color: "#8b5cf6" }}>
+          <p className="text-xs font-mono tracking-widest uppercase mb-4" style={{ color: "#6366f1" }}>
             What I've built
           </p>
           <h2
@@ -179,7 +179,7 @@ export default function Projects() {
             <span className="text-white">Featured </span>
             <span
               style={{
-                background: "linear-gradient(135deg, #a78bfa, #22d3ee)",
+                background: "linear-gradient(135deg, #818cf8, #34d399)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -190,7 +190,7 @@ export default function Projects() {
           </h2>
           <div
             className="w-14 h-1 mx-auto rounded-full"
-            style={{ background: "linear-gradient(90deg, #7c3aed, #06b6d4)" }}
+            style={{ background: "linear-gradient(90deg, #4f46e5, #10b981)" }}
           />
         </motion.div>
 
@@ -210,9 +210,9 @@ export default function Projects() {
               whileTap={{ scale: 0.96 }}
               className="relative px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300"
               style={{
-                color: filter === f.key ? "#a78bfa" : "#475569",
-                background: filter === f.key ? "rgba(139,92,246,0.1)" : "transparent",
-                border: `1px solid ${filter === f.key ? "rgba(139,92,246,0.35)" : "rgba(255,255,255,0.06)"}`,
+                color: filter === f.key ? "#818cf8" : "#475569",
+                background: filter === f.key ? "rgba(99,102,241,0.1)" : "transparent",
+                border: `1px solid ${filter === f.key ? "rgba(99,102,241,0.35)" : "rgba(255,255,255,0.06)"}`,
               }}
             >
               {f.label}
@@ -220,7 +220,7 @@ export default function Projects() {
                 <motion.div
                   layoutId="projectFilter"
                   className="absolute inset-0 rounded-xl pointer-events-none"
-                  style={{ border: "1px solid rgba(139,92,246,0.4)" }}
+                  style={{ border: "1px solid rgba(99,102,241,0.4)" }}
                 />
               )}
             </motion.button>
@@ -242,10 +242,10 @@ export default function Projects() {
                 exit={{ opacity: 0, scale: 0.88, y: -10 }}
                 transition={{ duration: 0.35, delay: i * 0.06 }}
                 whileHover={{ y: -6 }}
-                className="group rounded-2xl overflow-hidden transition-all duration-400 cursor-default flex flex-col"
+                className="group rounded-2xl overflow-hidden transition-all duration-400 cursor-default flex flex-col shimmer-border"
                 style={{
                   background: "rgba(10,11,26,0.7)",
-                  border: "1px solid rgba(139,92,246,0.1)",
+                  border: "1px solid rgba(99,102,241,0.1)",
                   backdropFilter: "blur(20px)",
                 }}
                 onMouseEnter={(e) => {
@@ -253,7 +253,7 @@ export default function Projects() {
                   e.currentTarget.style.boxShadow = `0 20px 50px rgba(0,0,0,0.5), 0 0 30px ${project.accent}18`;
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(139,92,246,0.1)";
+                  e.currentTarget.style.borderColor = "rgba(99,102,241,0.1)";
                   e.currentTarget.style.boxShadow = "";
                 }}
               >
@@ -399,18 +399,18 @@ export default function Projects() {
             whileTap={{ scale: 0.96 }}
             className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl font-medium text-sm transition-all duration-300"
             style={{
-              color: "#a78bfa",
-              border: "1px solid rgba(139,92,246,0.3)",
+              color: "#818cf8",
+              border: "1px solid rgba(99,102,241,0.3)",
               background: "transparent",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgba(139,92,246,0.1)";
-              e.currentTarget.style.borderColor = "rgba(139,92,246,0.55)";
-              e.currentTarget.style.boxShadow = "0 0 25px rgba(139,92,246,0.2)";
+              e.currentTarget.style.background = "rgba(99,102,241,0.1)";
+              e.currentTarget.style.borderColor = "rgba(99,102,241,0.55)";
+              e.currentTarget.style.boxShadow = "0 0 25px rgba(99,102,241,0.2)";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = "transparent";
-              e.currentTarget.style.borderColor = "rgba(139,92,246,0.3)";
+              e.currentTarget.style.borderColor = "rgba(99,102,241,0.3)";
               e.currentTarget.style.boxShadow = "";
             }}
           >

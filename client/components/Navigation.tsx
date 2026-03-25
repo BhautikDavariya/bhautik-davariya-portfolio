@@ -67,17 +67,17 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
             className="flex items-center gap-2.5 group"
           >
             <div
-              className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(139,92,246,0.5)]"
+              className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.5)]"
               style={{
-                background: "linear-gradient(135deg, #7c3aed, #06b6d4)",
+                background: "linear-gradient(135deg, #4f46e5, #10b981)",
               }}
             >
               <Code2 className="w-4 h-4 text-white" />
             </div>
             <span className="font-mono text-lg font-bold tracking-tight">
-              <span style={{ color: "#a78bfa" }}>&lt;</span>
+              <span style={{ color: "#818cf8" }}>&lt;</span>
               <span className="text-white">Bhautik</span>
-              <span style={{ color: "#22d3ee" }}> /&gt;</span>
+              <span style={{ color: "#34d399" }}> /&gt;</span>
             </span>
           </motion.button>
 
@@ -91,10 +91,10 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
                 whileTap={{ y: 0 }}
                 className="relative px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
                 style={{
-                  color: activeSection === item.id ? "#a78bfa" : "#64748b",
+                  color: activeSection === item.id ? "#818cf8" : "#64748b",
                 }}
               >
-                <span className="font-mono text-[10px] mr-1" style={{ color: "#8b5cf650" }}>
+                <span className="font-mono text-[10px] mr-1" style={{ color: "#6366f150" }}>
                   {item.num}.
                 </span>
                 {item.label}
@@ -122,7 +122,7 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
               whileTap={{ scale: 0.96 }}
               className="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300"
               style={{
-                color: "#a78bfa",
+                color: "#818cf8",
                 border: "1px solid rgba(139, 92, 246, 0.3)",
                 background: "transparent",
               }}
@@ -204,7 +204,7 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
                     onClick={() => scrollTo(item.id)}
                     className="w-full text-left py-3 px-4 rounded-xl flex items-center gap-3 transition-all duration-200"
                     style={{
-                      color: activeSection === item.id ? "#a78bfa" : "#64748b",
+                      color: activeSection === item.id ? "#818cf8" : "#64748b",
                       background:
                         activeSection === item.id
                           ? "rgba(139, 92, 246, 0.1)"
@@ -226,7 +226,7 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
                   onClick={openResume}
                   className="w-full flex items-center justify-center gap-2 py-3 px-4 mt-2 rounded-xl text-sm font-medium transition-all"
                   style={{
-                    color: "#a78bfa",
+                    color: "#818cf8",
                     border: "1px solid rgba(139, 92, 246, 0.3)",
                   }}
                 >
