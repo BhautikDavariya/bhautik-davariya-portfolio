@@ -15,12 +15,12 @@ const TICKER = [
 ];
 
 const CODE_LINES = [
-  { key: "name",       value: '"Bhautik Davariya"',    color: "#34d399" },
-  { key: "role",       value: '"Full Stack Dev"',       color: "#34d399" },
-  { key: "stack",      value: '["MERN", "Next.js"]',   color: "#f0abfc" },
-  { key: "aiTools",    value: '["Cursor", "Claude"]',  color: "#f0abfc" },
-  { key: "available",  value: "true",                   color: "#4ade80" },
-  { key: "experience", value: '"3+ years"',             color: "#34d399" },
+  { key: "name",       value: '"Bhautik Davariya"',    color: "#4ade80" },
+  { key: "role",       value: '"Full Stack Dev"',       color: "#4ade80" },
+  { key: "stack",      value: '["MERN", "Next.js"]',   color: "#86efac" },
+  { key: "aiTools",    value: '["Cursor", "Claude"]',  color: "#86efac" },
+  { key: "available",  value: "true",                   color: "#22c55e" },
+  { key: "experience", value: '"3+ years"',             color: "#4ade80" },
 ];
 
 export default function Hero() {
@@ -40,19 +40,19 @@ export default function Hero() {
     >
       {/* Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0" style={{ background: "#060810" }} />
+        <div className="absolute inset-0" style={{ background: "#060a06" }} />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 70% 50% at 100% 0%, rgba(99,102,241,0.1) 0%, transparent 60%)," +
-              "radial-gradient(ellipse 50% 40% at 0% 100%, rgba(16,185,129,0.06) 0%, transparent 60%)",
+              "radial-gradient(ellipse 70% 50% at 100% 0%, rgba(34,197,94,0.08) 0%, transparent 60%)," +
+              "radial-gradient(ellipse 50% 40% at 0% 100%, rgba(16,185,129,0.05) 0%, transparent 60%)",
           }}
         />
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "linear-gradient(rgba(99,102,241,0.055) 1px, transparent 1px)",
+            backgroundImage: "linear-gradient(rgba(34,197,94,0.04) 1px, transparent 1px)",
             backgroundSize: "100% 90px",
             opacity: 0.6,
           }}
@@ -76,14 +76,14 @@ export default function Hero() {
                 transition={{ delay: 0.1, duration: 0.5 }}
                 className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-10 text-[11px] font-mono tracking-widest uppercase"
                 style={{
-                  background: "rgba(99,102,241,0.08)",
-                  border: "1px solid rgba(99,102,241,0.18)",
-                  color: "#818cf8",
+                  background: "rgba(34,197,94,0.08)",
+                  border: "1px solid rgba(34,197,94,0.18)",
+                  color: "#4ade80",
                 }}
               >
                 <span
                   className="w-1.5 h-1.5 rounded-full"
-                  style={{ background: "#4ade80", boxShadow: "0 0 7px #4ade80" }}
+                  style={{ background: "#22c55e", boxShadow: "0 0 7px #22c55e" }}
                 />
                 Available for opportunities
               </motion.div>
@@ -104,7 +104,7 @@ export default function Hero() {
                           fontSize: "clamp(3.5rem, 9vw, 7.5rem)",
                           ...(wi === 1
                             ? {
-                                background: "linear-gradient(135deg, #818cf8 0%, #34d399 55%, #f0abfc 100%)",
+                                background: "linear-gradient(135deg, #4ade80 0%, #22c55e 55%, #10b981 100%)",
                                 WebkitBackgroundClip: "text",
                                 WebkitTextFillColor: "transparent",
                                 backgroundClip: "text",
@@ -127,10 +127,10 @@ export default function Hero() {
                 transition={{ delay: 0.48, duration: 0.55, ease: "easeOut" }}
                 className="flex items-center gap-4 mb-7"
               >
-                <div className="w-10 h-px" style={{ background: "rgba(99,102,241,0.55)" }} />
+                <div className="w-10 h-px" style={{ background: "rgba(34,197,94,0.55)" }} />
                 <span
                   className="text-[11px] font-mono tracking-[0.22em] uppercase"
-                  style={{ color: "#475569" }}
+                  style={{ color: "#94a3b8" }}
                 >
                   Full Stack Developer · MERN Stack
                 </span>
@@ -141,8 +141,8 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.58, duration: 0.5 }}
-                className="text-slate-400 max-w-lg mb-10 leading-relaxed"
-                style={{ fontSize: "0.9375rem" }}
+                className="max-w-lg mb-10 leading-relaxed"
+                style={{ fontSize: "0.9375rem", color: "#94a3b8" }}
               >
                 Building digital products with the MERN stack. I use AI tools like Cursor
                 and Claude to ship faster, cleaner code — turning complex problems into
@@ -162,16 +162,16 @@ export default function Hero() {
                   onClick={() => scrollTo("projects")}
                   className="flex items-center gap-2 px-7 py-3.5 rounded-xl text-white font-semibold text-sm"
                   style={{
-                    background: "linear-gradient(135deg, #3730a3, #4f46e5, #6366f1)",
-                    boxShadow: "0 0 22px rgba(99,102,241,0.35), 0 4px 14px rgba(99,102,241,0.2)",
+                    background: "linear-gradient(135deg, #15803d, #16a34a, #22c55e)",
+                    boxShadow: "0 0 22px rgba(34,197,94,0.35), 0 4px 14px rgba(34,197,94,0.2)",
                   }}
                   onMouseEnter={(e) =>
                     (e.currentTarget.style.boxShadow =
-                      "0 0 38px rgba(99,102,241,0.55), 0 8px 24px rgba(99,102,241,0.3)")
+                      "0 0 38px rgba(34,197,94,0.55), 0 8px 24px rgba(34,197,94,0.3)")
                   }
                   onMouseLeave={(e) =>
                     (e.currentTarget.style.boxShadow =
-                      "0 0 22px rgba(99,102,241,0.35), 0 4px 14px rgba(99,102,241,0.2)")
+                      "0 0 22px rgba(34,197,94,0.35), 0 4px 14px rgba(34,197,94,0.2)")
                   }
                 >
                   View Projects <ArrowRight className="w-4 h-4" />
@@ -189,17 +189,17 @@ export default function Hero() {
                   className="flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm transition-all duration-200"
                   style={{
                     color: "#94a3b8",
-                    border: "1px solid rgba(255,255,255,0.08)",
+                    border: "1px solid rgba(255,255,255,0.1)",
                     background: "transparent",
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.color = "#f1f5f9";
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.16)";
-                    e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
+                    e.currentTarget.style.background = "rgba(255,255,255,0.05)";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.color = "#94a3b8";
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
                     e.currentTarget.style.background = "transparent";
                   }}
                 >
@@ -227,15 +227,15 @@ export default function Hero() {
                       whileHover={{ y: -3 }}
                       aria-label={s.label}
                       className="w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-200"
-                      style={{ border: "1px solid rgba(255,255,255,0.07)", color: "#475569" }}
+                      style={{ border: "1px solid rgba(255,255,255,0.1)", color: "#64748b" }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.color = "#a5b4fc";
-                        e.currentTarget.style.borderColor = "rgba(99,102,241,0.3)";
-                        e.currentTarget.style.background = "rgba(99,102,241,0.08)";
+                        e.currentTarget.style.color = "#4ade80";
+                        e.currentTarget.style.borderColor = "rgba(34,197,94,0.3)";
+                        e.currentTarget.style.background = "rgba(34,197,94,0.08)";
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.color = "#475569";
-                        e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)";
+                        e.currentTarget.style.color = "#64748b";
+                        e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
                         e.currentTarget.style.background = "transparent";
                       }}
                     >
@@ -245,7 +245,7 @@ export default function Hero() {
                 </div>
 
                 <div
-                  style={{ width: "1px", height: "18px", background: "rgba(255,255,255,0.07)" }}
+                  style={{ width: "1px", height: "18px", background: "rgba(255,255,255,0.1)" }}
                 />
 
                 {[
@@ -262,7 +262,7 @@ export default function Hero() {
                     </div>
                     <div
                       className="text-[10px] uppercase tracking-widest"
-                      style={{ color: "#334155" }}
+                      style={{ color: "#64748b" }}
                     >
                       {st.l}
                     </div>
@@ -280,18 +280,18 @@ export default function Hero() {
               <div
                 className="rounded-2xl overflow-hidden"
                 style={{
-                  background: "rgba(7,8,18,0.96)",
-                  border: "1px solid rgba(255,255,255,0.07)",
+                  background: "rgba(6,10,6,0.96)",
+                  border: "1px solid rgba(255,255,255,0.08)",
                   boxShadow:
-                    "0 30px 70px rgba(0,0,0,0.55), 0 0 0 1px rgba(99,102,241,0.08), inset 0 1px 0 rgba(255,255,255,0.04)",
+                    "0 30px 70px rgba(0,0,0,0.55), 0 0 0 1px rgba(34,197,94,0.08), inset 0 1px 0 rgba(255,255,255,0.04)",
                 }}
               >
                 {/* Title bar */}
                 <div
                   className="flex items-center gap-2 px-4 py-3 border-b"
                   style={{
-                    borderColor: "rgba(255,255,255,0.05)",
-                    background: "rgba(255,255,255,0.018)",
+                    borderColor: "rgba(255,255,255,0.06)",
+                    background: "rgba(255,255,255,0.02)",
                   }}
                 >
                   <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#ff5f57" }} />
@@ -299,7 +299,7 @@ export default function Hero() {
                   <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#28c840" }} />
                   <span
                     className="ml-auto text-[11px] font-mono"
-                    style={{ color: "#253040" }}
+                    style={{ color: "#64748b" }}
                   >
                     developer.config.ts
                   </span>
@@ -307,11 +307,11 @@ export default function Hero() {
 
                 {/* Code body */}
                 <div className="p-6 font-mono text-[13px] leading-relaxed space-y-0.5">
-                  <div style={{ color: "#253040" }}>{"// Developer profile · 2025"}</div>
+                  <div style={{ color: "#64748b" }}>{"// Developer profile · 2025"}</div>
                   <div className="mt-2">
-                    <span style={{ color: "#818cf8" }}>const </span>
+                    <span style={{ color: "#4ade80" }}>const </span>
                     <span style={{ color: "#e2e8f0" }}>dev</span>
-                    <span style={{ color: "#64748b" }}>{" = {"}</span>
+                    <span style={{ color: "#94a3b8" }}>{" = {"}</span>
                   </div>
                   {CODE_LINES.map((line, i) => (
                     <motion.div
@@ -321,24 +321,24 @@ export default function Hero() {
                       transition={{ delay: 0.55 + i * 0.1, duration: 0.3 }}
                       className="pl-5"
                     >
-                      <span style={{ color: "#a5b4fc" }}>{line.key}</span>
-                      <span style={{ color: "#475569" }}>: </span>
+                      <span style={{ color: "#86efac" }}>{line.key}</span>
+                      <span style={{ color: "#94a3b8" }}>: </span>
                       <span style={{ color: line.color }}>{line.value}</span>
-                      <span style={{ color: "#475569" }}>,</span>
+                      <span style={{ color: "#94a3b8" }}>,</span>
                     </motion.div>
                   ))}
-                  <div style={{ color: "#64748b" }}>{"}"}</div>
+                  <div style={{ color: "#94a3b8" }}>{"}"}</div>
                   <div
                     className="flex items-center gap-1.5 mt-3 pt-3"
-                    style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}
+                    style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
                   >
-                    <span style={{ color: "#253040" }}>$</span>
-                    <span style={{ color: "#475569" }}> npm run build</span>
+                    <span style={{ color: "#64748b" }}>$</span>
+                    <span style={{ color: "#94a3b8" }}> npm run build</span>
                     <motion.span
                       className="inline-block w-[7px] h-[14px] ml-0.5 rounded-sm"
                       animate={{ opacity: [1, 0, 1] }}
                       transition={{ duration: 1, repeat: Infinity, ease: "steps(1)" }}
-                      style={{ background: "#6366f1" }}
+                      style={{ background: "#22c55e" }}
                     />
                   </div>
                 </div>
@@ -347,15 +347,15 @@ export default function Hero() {
               {/* Mini stat cards */}
               <div className="grid grid-cols-2 gap-3 mt-4">
                 {[
-                  { label: "Companies", value: "4", color: "#818cf8" },
-                  { label: "Code Written", value: "300k+", color: "#34d399" },
+                  { label: "Companies", value: "4", color: "#4ade80" },
+                  { label: "Code Written", value: "300k+", color: "#22c55e" },
                 ].map((card) => (
                   <div
                     key={card.label}
                     className="px-4 py-3 rounded-xl"
                     style={{
-                      background: "rgba(7,8,18,0.8)",
-                      border: "1px solid rgba(255,255,255,0.06)",
+                      background: "rgba(6,10,6,0.8)",
+                      border: "1px solid rgba(255,255,255,0.07)",
                     }}
                   >
                     <div
@@ -366,7 +366,7 @@ export default function Hero() {
                     </div>
                     <div
                       className="text-[10px] uppercase tracking-wide mt-0.5"
-                      style={{ color: "#2a3a50" }}
+                      style={{ color: "#64748b" }}
                     >
                       {card.label}
                     </div>
@@ -384,7 +384,7 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.0, duration: 0.6 }}
         className="relative z-10 border-t overflow-hidden py-3.5"
-        style={{ borderColor: "rgba(255,255,255,0.05)" }}
+        style={{ borderColor: "rgba(255,255,255,0.06)" }}
       >
         <div
           className="flex"
@@ -394,7 +394,7 @@ export default function Hero() {
             <span
               key={i}
               className="flex-shrink-0 flex items-center gap-3.5 px-5 text-[11px] font-mono tracking-widest uppercase"
-              style={{ color: "#253040" }}
+              style={{ color: "#64748b" }}
             >
               {item}
               <span style={{ opacity: 0.35, fontSize: "7px" }}>◆</span>

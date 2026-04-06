@@ -29,8 +29,8 @@ const HIGHLIGHTS = [
     Icon: Code2,
     title: "Frontend Development",
     desc: "Responsive, interactive UIs with React, TypeScript, and modern CSS frameworks.",
-    color: "#6366f1",
-    bg: "rgba(99,102,241,0.1)",
+    color: "#22c55e",
+    bg: "rgba(34,197,94,0.1)",
   },
   {
     Icon: Server,
@@ -43,8 +43,8 @@ const HIGHLIGHTS = [
     Icon: Globe,
     title: "Full Stack Solutions",
     desc: "End-to-end application development from concept to production.",
-    color: "#e879f9",
-    bg: "rgba(232,121,249,0.1)",
+    color: "#4ade80",
+    bg: "rgba(74,222,128,0.1)",
   },
   {
     Icon: Bot,
@@ -81,7 +81,7 @@ export default function About() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(99,102,241,0.1) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(34,197,94,0.08) 1px, transparent 1px)",
           backgroundSize: "30px 30px",
           opacity: 0.4,
         }}
@@ -90,7 +90,7 @@ export default function About() {
       <div
         className="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(16,185,129,0.07) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(34,197,94,0.06) 0%, transparent 70%)",
           filter: "blur(80px)",
         }}
       />
@@ -106,7 +106,7 @@ export default function About() {
         >
           <p
             className="text-xs font-mono tracking-widest uppercase mb-4"
-            style={{ color: "#6366f1" }}
+            style={{ color: "#22c55e" }}
           >
             Get to know me
           </p>
@@ -117,7 +117,7 @@ export default function About() {
             <span className="text-white">About </span>
             <span
               style={{
-                background: "linear-gradient(135deg, #818cf8, #34d399)",
+                background: "linear-gradient(135deg, #4ade80, #22c55e)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -128,7 +128,7 @@ export default function About() {
           </h2>
           <div
             className="w-14 h-1 mx-auto rounded-full"
-            style={{ background: "linear-gradient(90deg, #4f46e5, #10b981)" }}
+            style={{ background: "linear-gradient(90deg, #16a34a, #22c55e)" }}
           />
         </motion.div>
 
@@ -148,7 +148,7 @@ export default function About() {
                 className="absolute -inset-4 rounded-3xl opacity-30"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(99,102,241,0.3), rgba(16,185,129,0.2))",
+                    "linear-gradient(135deg, rgba(34,197,94,0.3), rgba(16,185,129,0.2))",
                   filter: "blur(20px)",
                 }}
               />
@@ -156,13 +156,13 @@ export default function About() {
               {/* Image */}
               <div
                 className="relative rounded-2xl overflow-hidden"
-                style={{ border: "1px solid rgba(99,102,241,0.25)" }}
+                style={{ border: "1px solid rgba(34,197,94,0.25)" }}
               >
                 <div
                   className="absolute inset-0 z-10 pointer-events-none"
                   style={{
                     background:
-                      "linear-gradient(to bottom, transparent 60%, rgba(5,6,14,0.6))",
+                      "linear-gradient(to bottom, transparent 60%, rgba(6,10,6,0.6))",
                   }}
                 />
                 <img
@@ -178,7 +178,7 @@ export default function About() {
                 className="absolute inset-0 rounded-2xl pointer-events-none"
                 style={{
                   boxShadow:
-                    "0 0 60px rgba(99,102,241,0.2), 0 0 120px rgba(99,102,241,0.06)",
+                    "0 0 60px rgba(34,197,94,0.15), 0 0 120px rgba(34,197,94,0.05)",
                 }}
               />
 
@@ -190,18 +190,18 @@ export default function About() {
                 transition={{ delay: 0.75 }}
                 className="absolute -top-5 -right-5 px-5 py-3 rounded-xl backdrop-blur-sm"
                 style={{
-                  background: "rgba(10,11,26,0.92)",
-                  border: "1px solid rgba(99,102,241,0.3)",
-                  boxShadow: "0 0 30px rgba(99,102,241,0.15)",
+                  background: "rgba(8,12,8,0.92)",
+                  border: "1px solid rgba(34,197,94,0.3)",
+                  boxShadow: "0 0 30px rgba(34,197,94,0.12)",
                 }}
               >
                 <div
                   className="text-2xl font-bold"
-                  style={{ color: "#818cf8" }}
+                  style={{ color: "#4ade80" }}
                 >
                   {years.count}+
                 </div>
-                <div className="text-xs" style={{ color: "#475569" }}>Years Exp.</div>
+                <div className="text-xs" style={{ color: "#94a3b8" }}>Years Exp.</div>
               </motion.div>
 
               {/* Projects badge */}
@@ -212,18 +212,18 @@ export default function About() {
                 transition={{ delay: 0.9 }}
                 className="absolute -bottom-5 -left-5 px-5 py-3 rounded-xl backdrop-blur-sm"
                 style={{
-                  background: "rgba(10,11,26,0.92)",
+                  background: "rgba(8,12,8,0.92)",
                   border: "1px solid rgba(16,185,129,0.3)",
                   boxShadow: "0 0 30px rgba(16,185,129,0.12)",
                 }}
               >
                 <div
                   className="text-2xl font-bold"
-                  style={{ color: "#34d399" }}
+                  style={{ color: "#22c55e" }}
                 >
                   {projects.count}+
                 </div>
-                <div className="text-xs" style={{ color: "#475569" }}>Projects Done</div>
+                <div className="text-xs" style={{ color: "#94a3b8" }}>Projects Done</div>
               </motion.div>
             </div>
           </motion.div>
@@ -243,7 +243,7 @@ export default function About() {
               Passionate about creating{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #818cf8, #34d399)",
+                  background: "linear-gradient(135deg, #4ade80, #22c55e)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -253,24 +253,24 @@ export default function About() {
               </span>
             </h3>
 
-            <p className="leading-relaxed" style={{ color: "#64748b" }}>
+            <p className="leading-relaxed" style={{ color: "#94a3b8" }}>
               I'm a dedicated Full Stack Developer with over 3 years of experience in the
               MERN stack. I love turning complex problems into simple, beautiful, and
               intuitive solutions that people enjoy using.
             </p>
 
-            <p className="leading-relaxed" style={{ color: "#64748b" }}>
+            <p className="leading-relaxed" style={{ color: "#94a3b8" }}>
               My journey started with curiosity about how things work on the web. Since
               then, I've been constantly evolving — leveraging AI tools like{" "}
-              <span style={{ color: "#818cf8" }}>Cursor</span> and{" "}
-              <span style={{ color: "#34d399" }}>Claude</span> to accelerate development,
+              <span style={{ color: "#4ade80" }}>Cursor</span> and{" "}
+              <span style={{ color: "#22c55e" }}>Claude</span> to accelerate development,
               write smarter code, and deliver real impact faster.
             </p>
 
-            <p className="leading-relaxed" style={{ color: "#64748b" }}>
-              Currently working with companies like <span style={{ color: "#818cf8" }}>SMIXIT Solutions</span>,{" "}
-              <span style={{ color: "#34d399" }}>INFYOM Technologies</span>,{" "}
-              <span style={{ color: "#f0abfc" }}>NETIZENS Technologies</span>, and{" "}
+            <p className="leading-relaxed" style={{ color: "#94a3b8" }}>
+              Currently working with companies like <span style={{ color: "#4ade80" }}>SMIXIT Solutions</span>,{" "}
+              <span style={{ color: "#22c55e" }}>INFYOM Technologies</span>,{" "}
+              <span style={{ color: "#10b981" }}>NETIZENS Technologies</span>, and{" "}
               <span style={{ color: "#fbbf24" }}>Sensussoft Software Pvt. Ltd.</span>, delivering
               production-ready full-stack applications across diverse industries.
             </p>
@@ -287,9 +287,9 @@ export default function About() {
                   whileHover={{ scale: 1.06 }}
                   className="px-3 py-1.5 rounded-lg text-xs font-medium cursor-default"
                   style={{
-                    background: "rgba(99,102,241,0.1)",
-                    border: "1px solid rgba(99,102,241,0.22)",
-                    color: "#a5b4fc",
+                    background: "rgba(34,197,94,0.08)",
+                    border: "1px solid rgba(34,197,94,0.2)",
+                    color: "#4ade80",
                   }}
                 >
                   {tech}
@@ -311,8 +311,8 @@ export default function About() {
               whileHover={{ y: -6 }}
               className="p-6 rounded-2xl cursor-default transition-all duration-300 shimmer-border"
               style={{
-                background: "rgba(10,11,26,0.6)",
-                border: "1px solid rgba(99,102,241,0.1)",
+                background: "rgba(8,12,8,0.6)",
+                border: "1px solid rgba(34,197,94,0.1)",
                 backdropFilter: "blur(20px)",
               }}
               onMouseEnter={(e) => {
@@ -320,7 +320,7 @@ export default function About() {
                 e.currentTarget.style.boxShadow = `0 20px 40px rgba(0,0,0,0.4), 0 0 30px ${h.color}18`;
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(99,102,241,0.1)";
+                e.currentTarget.style.borderColor = "rgba(34,197,94,0.1)";
                 e.currentTarget.style.boxShadow = "";
               }}
             >
@@ -336,7 +336,7 @@ export default function About() {
               >
                 {h.title}
               </h4>
-              <p className="text-xs leading-relaxed" style={{ color: "#475569" }}>
+              <p className="text-xs leading-relaxed" style={{ color: "#94a3b8" }}>
                 {h.desc}
               </p>
             </motion.div>

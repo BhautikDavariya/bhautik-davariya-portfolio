@@ -4,9 +4,9 @@ import { Github, Linkedin, Mail, Code2, Heart, ArrowUp } from "lucide-react";
 const QUICK_LINKS = ["Home", "About", "Skills", "Projects", "Contact"];
 
 const SOCIAL = [
-  { Icon: Github, href: "https://github.com/BhautikDavariya", label: "GitHub", color: "#818cf8" },
-  { Icon: Linkedin, href: "https://www.linkedin.com/in/bhautik-davariya-15b2b722a/", label: "LinkedIn", color: "#34d399" },
-  { Icon: Mail, href: "mailto:bhautikmerndevelopers@gmail.com", label: "Email", color: "#f0abfc" },
+  { Icon: Github, href: "https://github.com/BhautikDavariya", label: "GitHub", color: "#4ade80" },
+  { Icon: Linkedin, href: "https://www.linkedin.com/in/bhautik-davariya-15b2b722a/", label: "LinkedIn", color: "#22c55e" },
+  { Icon: Mail, href: "mailto:bhautikmerndevelopers@gmail.com", label: "Email", color: "#10b981" },
 ];
 
 export default function Footer() {
@@ -16,12 +16,12 @@ export default function Footer() {
   const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer className="relative overflow-hidden" style={{ background: "#040409" }}>
+    <footer className="relative overflow-hidden" style={{ background: "#040604" }}>
       {/* Top border glow */}
       <div
         className="absolute top-0 left-0 right-0 h-px"
         style={{
-          background: "linear-gradient(90deg, transparent, rgba(99,102,241,0.5), rgba(16,185,129,0.4), transparent)",
+          background: "linear-gradient(90deg, transparent, rgba(34,197,94,0.5), rgba(16,185,129,0.4), transparent)",
         }}
       />
 
@@ -38,17 +38,17 @@ export default function Footer() {
             <div className="flex items-center gap-2.5">
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center"
-                style={{ background: "linear-gradient(135deg, #4f46e5, #10b981)" }}
+                style={{ background: "linear-gradient(135deg, #16a34a, #22c55e)" }}
               >
                 <Code2 className="w-4 h-4 text-white" />
               </div>
               <span className="font-mono text-lg font-bold">
-                <span style={{ color: "#818cf8" }}>&lt;</span>
+                <span style={{ color: "#22c55e" }}>&lt;</span>
                 <span className="text-white">Bhautik</span>
-                <span style={{ color: "#34d399" }}> /&gt;</span>
+                <span style={{ color: "#4ade80" }}> /&gt;</span>
               </span>
             </div>
-            <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>
+            <p className="text-sm leading-relaxed" style={{ color: "#94a3b8" }}>
               Full Stack MERN Developer passionate about crafting exceptional digital experiences
               with clean code and modern technologies.
             </p>
@@ -64,9 +64,9 @@ export default function Footer() {
                   aria-label={s.label}
                   className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300"
                   style={{
-                    border: "1px solid rgba(255,255,255,0.06)",
-                    background: "rgba(255,255,255,0.025)",
-                    color: "#475569",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                    background: "rgba(255,255,255,0.03)",
+                    color: "#64748b",
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.color = s.color;
@@ -75,9 +75,9 @@ export default function Footer() {
                     e.currentTarget.style.boxShadow = `0 0 15px ${s.color}25`;
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.color = "#475569";
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)";
-                    e.currentTarget.style.background = "rgba(255,255,255,0.025)";
+                    e.currentTarget.style.color = "#64748b";
+                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                    e.currentTarget.style.background = "rgba(255,255,255,0.03)";
                     e.currentTarget.style.boxShadow = "";
                   }}
                 >
@@ -108,11 +108,11 @@ export default function Footer() {
                   onClick={() => scrollTo(link)}
                   whileHover={{ x: 4 }}
                   className="block text-sm transition-colors duration-200 text-left"
-                  style={{ color: "#475569" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#818cf8")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "#475569")}
+                  style={{ color: "#94a3b8" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#4ade80")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "#94a3b8")}
                 >
-                  <span style={{ color: "#3b2d73", marginRight: "6px" }} className="font-mono text-[10px]">
+                  <span style={{ color: "#1a5c30", marginRight: "6px" }} className="font-mono text-[10px]">
                     ›
                   </span>
                   {link}
@@ -135,7 +135,7 @@ export default function Footer() {
             >
               Get in Touch
             </h3>
-            <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>
+            <p className="text-sm leading-relaxed" style={{ color: "#94a3b8" }}>
               Open to new opportunities and interesting projects. Let's build something amazing together.
             </p>
             <motion.a
@@ -144,18 +144,18 @@ export default function Footer() {
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium transition-all duration-300"
               style={{
-                color: "#818cf8",
-                border: "1px solid rgba(99,102,241,0.28)",
-                background: "rgba(99,102,241,0.07)",
+                color: "#4ade80",
+                border: "1px solid rgba(34,197,94,0.28)",
+                background: "rgba(34,197,94,0.07)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(99,102,241,0.14)";
-                e.currentTarget.style.borderColor = "rgba(99,102,241,0.5)";
-                e.currentTarget.style.boxShadow = "0 0 16px rgba(99,102,241,0.2)";
+                e.currentTarget.style.background = "rgba(34,197,94,0.14)";
+                e.currentTarget.style.borderColor = "rgba(34,197,94,0.5)";
+                e.currentTarget.style.boxShadow = "0 0 16px rgba(34,197,94,0.2)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(99,102,241,0.07)";
-                e.currentTarget.style.borderColor = "rgba(99,102,241,0.28)";
+                e.currentTarget.style.background = "rgba(34,197,94,0.07)";
+                e.currentTarget.style.borderColor = "rgba(34,197,94,0.28)";
                 e.currentTarget.style.boxShadow = "";
               }}
             >
@@ -168,14 +168,14 @@ export default function Footer() {
         {/* Bottom bar */}
         <div
           className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4"
-          style={{ borderTop: "1px solid rgba(99,102,241,0.1)" }}
+          style={{ borderTop: "1px solid rgba(34,197,94,0.1)" }}
         >
-          <p className="text-xs flex items-center gap-1.5" style={{ color: "#334155" }}>
+          <p className="text-xs flex items-center gap-1.5" style={{ color: "#64748b" }}>
             © {new Date().getFullYear()} Bhautik Davariya. Built with
-            <Heart className="w-3 h-3 inline" style={{ color: "#e879f9" }} />
+            <Heart className="w-3 h-3 inline" style={{ color: "#22c55e" }} />
             and React.
           </p>
-          <p className="text-xs" style={{ color: "#334155" }}>
+          <p className="text-xs" style={{ color: "#64748b" }}>
             Designed & Developed by Bhautik Davariya
           </p>
           <motion.button
@@ -185,16 +185,16 @@ export default function Footer() {
             aria-label="Scroll to top"
             className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300"
             style={{
-              border: "1px solid rgba(99,102,241,0.2)",
-              background: "rgba(99,102,241,0.07)",
-              color: "#6366f1",
+              border: "1px solid rgba(34,197,94,0.2)",
+              background: "rgba(34,197,94,0.07)",
+              color: "#22c55e",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgba(99,102,241,0.18)";
-              e.currentTarget.style.boxShadow = "0 0 16px rgba(99,102,241,0.25)";
+              e.currentTarget.style.background = "rgba(34,197,94,0.18)";
+              e.currentTarget.style.boxShadow = "0 0 16px rgba(34,197,94,0.25)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = "rgba(99,102,241,0.07)";
+              e.currentTarget.style.background = "rgba(34,197,94,0.07)";
               e.currentTarget.style.boxShadow = "";
             }}
           >

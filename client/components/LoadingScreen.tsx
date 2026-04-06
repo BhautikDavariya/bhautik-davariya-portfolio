@@ -44,14 +44,14 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
           exit={{ opacity: 0, scale: 1.02 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
           className="fixed inset-0 z-[100] flex items-center justify-center"
-          style={{ background: "#060810" }}
+          style={{ background: "#060a06" }}
         >
           {/* Ambient gradient */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(99,102,241,0.07) 0%, transparent 65%)",
+                "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(34,197,94,0.06) 0%, transparent 65%)",
             }}
           />
 
@@ -59,7 +59,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
-              backgroundImage: "linear-gradient(rgba(99,102,241,0.055) 1px, transparent 1px)",
+              backgroundImage: "linear-gradient(rgba(34,197,94,0.04) 1px, transparent 1px)",
               backgroundSize: "100% 90px",
               opacity: 0.5,
             }}
@@ -77,7 +77,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
               <div className="w-20 h-20 relative flex items-center justify-center">
                 <motion.div
                   className="absolute inset-0 rounded-2xl"
-                  style={{ border: "1px solid rgba(99,102,241,0.14)" }}
+                  style={{ border: "1px solid rgba(34,197,94,0.14)" }}
                   animate={{ rotate: 360 }}
                   transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
                 />
@@ -85,16 +85,16 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
                   className="absolute inset-2.5 rounded-xl"
                   style={{
                     border: "1.5px solid transparent",
-                    borderTopColor: "#6366f1",
+                    borderTopColor: "#22c55e",
                     borderRightColor: "#10b981",
                   }}
                   animate={{ rotate: -360 }}
                   transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                 />
                 <span className="font-mono font-bold text-lg relative z-10">
-                  <span style={{ color: "#818cf8" }}>&lt;</span>
+                  <span style={{ color: "#22c55e" }}>&lt;</span>
                   <span className="text-white">B</span>
-                  <span style={{ color: "#34d399" }}>/&gt;</span>
+                  <span style={{ color: "#4ade80" }}>/&gt;</span>
                 </span>
               </div>
             </motion.div>
@@ -107,7 +107,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
               className="font-black text-2xl tracking-tighter mb-1"
               style={{
                 fontFamily: "'Space Grotesk', sans-serif",
-                background: "linear-gradient(135deg, #818cf8, #34d399)",
+                background: "linear-gradient(135deg, #4ade80, #22c55e)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -121,7 +121,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.45 }}
               className="text-[11px] font-mono tracking-[0.2em] uppercase mb-12"
-              style={{ color: "#2a3a50" }}
+              style={{ color: "#64748b" }}
             >
               Full Stack Developer
             </motion.p>
@@ -130,24 +130,24 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
             <div className="w-64">
               <div
                 className="relative h-px rounded-full overflow-hidden mb-3"
-                style={{ background: "rgba(255,255,255,0.05)" }}
+                style={{ background: "rgba(255,255,255,0.06)" }}
               >
                 <div
                   className="absolute inset-y-0 left-0 rounded-full"
                   style={{
                     width: `${progress}%`,
-                    background: "linear-gradient(90deg, #4f46e5, #10b981)",
+                    background: "linear-gradient(90deg, #16a34a, #22c55e)",
                     transition: "width 0.15s ease-out",
                   }}
                 />
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-[10px] font-mono" style={{ color: "#253040" }}>
+                <span className="text-[10px] font-mono" style={{ color: "#64748b" }}>
                   {stepText}
                 </span>
                 <span
                   className="text-[10px] font-mono font-bold tabular-nums"
-                  style={{ color: "#6366f1" }}
+                  style={{ color: "#22c55e" }}
                 >
                   {Math.round(progress)}%
                 </span>

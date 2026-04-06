@@ -8,8 +8,8 @@ const CONTACT_INFO = [
     label: "Email",
     value: "bhautikmerndevelopers@gmail.com",
     href: "mailto:bhautikmerndevelopers@gmail.com",
-    color: "#6366f1",
-    bg: "rgba(99,102,241,0.1)",
+    color: "#22c55e",
+    bg: "rgba(34,197,94,0.1)",
   },
   {
     Icon: Phone,
@@ -24,8 +24,8 @@ const CONTACT_INFO = [
     label: "Location",
     value: "Surat, Gujarat, India",
     href: "https://www.google.com/maps/place/Surat,+Gujarat",
-    color: "#e879f9",
-    bg: "rgba(232,121,249,0.1)",
+    color: "#4ade80",
+    bg: "rgba(74,222,128,0.1)",
   },
 ];
 
@@ -34,19 +34,19 @@ const SOCIAL = [
     Icon: Github,
     label: "GitHub",
     href: "https://github.com/BhautikDavariya",
-    color: "#818cf8",
+    color: "#4ade80",
   },
   {
     Icon: Linkedin,
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/bhautik-davariya-15b2b722a/",
-    color: "#34d399",
+    color: "#22c55e",
   },
   {
     Icon: Mail,
     label: "Email",
     href: "mailto:bhautikmerndevelopers@gmail.com",
-    color: "#f0abfc",
+    color: "#10b981",
   },
 ];
 
@@ -94,7 +94,7 @@ export default function Contact() {
   const inputClass = "w-full px-4 py-3.5 rounded-xl text-sm text-white bg-transparent outline-none transition-all duration-300";
   const inputStyle = {
     background: "rgba(255,255,255,0.03)",
-    border: "1px solid rgba(99,102,241,0.15)",
+    border: "1px solid rgba(34,197,94,0.15)",
     color: "#f1f5f9",
   };
 
@@ -105,8 +105,8 @@ export default function Contact() {
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(99,102,241,0.04) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(99,102,241,0.04) 1px, transparent 1px)
+            linear-gradient(rgba(34,197,94,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(34,197,94,0.03) 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
         }}
@@ -114,7 +114,7 @@ export default function Contact() {
       <div
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse, rgba(99,102,241,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgba(34,197,94,0.06) 0%, transparent 70%)",
           filter: "blur(80px)",
         }}
       />
@@ -128,7 +128,7 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-xs font-mono tracking-widest uppercase mb-4" style={{ color: "#6366f1" }}>
+          <p className="text-xs font-mono tracking-widest uppercase mb-4" style={{ color: "#22c55e" }}>
             Let's work together
           </p>
           <h2
@@ -138,7 +138,7 @@ export default function Contact() {
             <span className="text-white">Get In </span>
             <span
               style={{
-                background: "linear-gradient(135deg, #818cf8, #34d399)",
+                background: "linear-gradient(135deg, #4ade80, #22c55e)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -149,9 +149,9 @@ export default function Contact() {
           </h2>
           <div
             className="w-14 h-1 mx-auto rounded-full mb-6"
-            style={{ background: "linear-gradient(90deg, #4f46e5, #10b981)" }}
+            style={{ background: "linear-gradient(90deg, #16a34a, #22c55e)" }}
           />
-          <p className="text-slate-400 max-w-xl mx-auto text-sm leading-relaxed">
+          <p className="max-w-xl mx-auto text-sm leading-relaxed" style={{ color: "#94a3b8" }}>
             Have a project in mind or just want to say hello? I'd love to hear from you.
             I'm currently open to new opportunities.
           </p>
@@ -173,7 +173,7 @@ export default function Contact() {
               >
                 Contact Information
               </h3>
-              <p className="text-sm text-slate-500">
+              <p className="text-sm" style={{ color: "#94a3b8" }}>
                 Reach out through any of these channels and I'll get back to you within 24 hours.
               </p>
             </div>
@@ -191,16 +191,16 @@ export default function Contact() {
                 whileHover={{ x: 4 }}
                 className="flex items-center gap-4 p-4 rounded-xl transition-all duration-300 group"
                 style={{
-                  background: "rgba(10,11,26,0.5)",
-                  border: "1px solid rgba(99,102,241,0.1)",
+                  background: "rgba(8,12,8,0.5)",
+                  border: "1px solid rgba(34,197,94,0.1)",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = `${c.color}30`;
-                  e.currentTarget.style.background = "rgba(10,11,26,0.8)";
+                  e.currentTarget.style.background = "rgba(8,12,8,0.8)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(99,102,241,0.1)";
-                  e.currentTarget.style.background = "rgba(10,11,26,0.5)";
+                  e.currentTarget.style.borderColor = "rgba(34,197,94,0.1)";
+                  e.currentTarget.style.background = "rgba(8,12,8,0.5)";
                 }}
               >
                 <div
@@ -210,7 +210,7 @@ export default function Contact() {
                   <c.Icon className="w-4 h-4" style={{ color: c.color }} />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-500 mb-0.5">{c.label}</div>
+                  <div className="text-xs mb-0.5" style={{ color: "#94a3b8" }}>{c.label}</div>
                   <div className="text-sm text-slate-200 font-medium group-hover:text-white transition-colors">
                     {c.value}
                   </div>
@@ -224,7 +224,7 @@ export default function Contact() {
 
             {/* Social links */}
             <div className="pt-2">
-              <p className="text-xs text-slate-500 mb-3">Find me on</p>
+              <p className="text-xs mb-3" style={{ color: "#94a3b8" }}>Find me on</p>
               <div className="flex gap-3">
                 {SOCIAL.map((s) => (
                   <motion.a
@@ -236,9 +236,9 @@ export default function Contact() {
                     whileTap={{ scale: 0.92 }}
                     className="p-3 rounded-xl transition-all duration-300"
                     style={{
-                      border: "1px solid rgba(255,255,255,0.06)",
-                      background: "rgba(255,255,255,0.025)",
-                      color: "#475569",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                      background: "rgba(255,255,255,0.03)",
+                      color: "#64748b",
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.color = s.color;
@@ -246,9 +246,9 @@ export default function Contact() {
                       e.currentTarget.style.background = `${s.color}10`;
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.color = "#475569";
-                      e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)";
-                      e.currentTarget.style.background = "rgba(255,255,255,0.025)";
+                      e.currentTarget.style.color = "#64748b";
+                      e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                      e.currentTarget.style.background = "rgba(255,255,255,0.03)";
                     }}
                     aria-label={s.label}
                   >
@@ -270,8 +270,8 @@ export default function Contact() {
             <div
               className="p-8 rounded-2xl"
               style={{
-                background: "rgba(10,11,26,0.65)",
-                border: "1px solid rgba(99,102,241,0.12)",
+                background: "rgba(8,12,8,0.65)",
+                border: "1px solid rgba(34,197,94,0.12)",
                 backdropFilter: "blur(20px)",
               }}
             >
@@ -286,14 +286,14 @@ export default function Contact() {
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 200, damping: 14 }}
                     className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5"
-                    style={{ background: "rgba(52,211,153,0.15)" }}
+                    style={{ background: "rgba(34,197,94,0.15)" }}
                   >
-                    <CheckCircle2 className="w-8 h-8" style={{ color: "#34d399" }} />
+                    <CheckCircle2 className="w-8 h-8" style={{ color: "#22c55e" }} />
                   </motion.div>
                   <h4 className="text-xl font-bold text-white mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                     Message Sent!
                   </h4>
-                  <p className="text-slate-400 text-sm">
+                  <p className="text-sm" style={{ color: "#94a3b8" }}>
                     Thanks for reaching out. I'll get back to you within 24 hours.
                   </p>
                   <motion.button
@@ -302,8 +302,8 @@ export default function Contact() {
                     whileTap={{ scale: 0.96 }}
                     className="mt-6 px-6 py-2.5 rounded-xl text-sm font-medium transition-all"
                     style={{
-                      color: "#818cf8",
-                      border: "1px solid rgba(99,102,241,0.3)",
+                      color: "#4ade80",
+                      border: "1px solid rgba(34,197,94,0.3)",
                     }}
                   >
                     Send Another
@@ -315,8 +315,8 @@ export default function Contact() {
                   <div className="grid sm:grid-cols-2 gap-4">
                     {(["name", "email"] as const).map((field) => (
                       <div key={field}>
-                        <label className="text-xs text-slate-400 mb-1.5 block capitalize">
-                          {field} <span style={{ color: "#6366f1" }}>*</span>
+                        <label className="text-xs mb-1.5 block capitalize" style={{ color: "#94a3b8" }}>
+                          {field} <span style={{ color: "#22c55e" }}>*</span>
                         </label>
                         <input
                           type={field === "email" ? "email" : "text"}
@@ -330,11 +330,11 @@ export default function Contact() {
                             borderColor: errors[field] ? "rgba(239,68,68,0.5)" : inputStyle.border.replace("1px solid ", ""),
                           }}
                           onFocus={(e) => {
-                            e.currentTarget.style.borderColor = "rgba(99,102,241,0.5)";
-                            e.currentTarget.style.boxShadow = "0 0 0 3px rgba(99,102,241,0.08)";
+                            e.currentTarget.style.borderColor = "rgba(34,197,94,0.5)";
+                            e.currentTarget.style.boxShadow = "0 0 0 3px rgba(34,197,94,0.08)";
                           }}
                           onBlur={(e) => {
-                            e.currentTarget.style.borderColor = errors[field] ? "rgba(239,68,68,0.5)" : "rgba(99,102,241,0.15)";
+                            e.currentTarget.style.borderColor = errors[field] ? "rgba(239,68,68,0.5)" : "rgba(34,197,94,0.15)";
                             e.currentTarget.style.boxShadow = "";
                           }}
                         />
@@ -347,8 +347,8 @@ export default function Contact() {
 
                   {/* Subject */}
                   <div>
-                    <label className="text-xs text-slate-400 mb-1.5 block">
-                      Subject <span style={{ color: "#6366f1" }}>*</span>
+                    <label className="text-xs mb-1.5 block" style={{ color: "#94a3b8" }}>
+                      Subject <span style={{ color: "#22c55e" }}>*</span>
                     </label>
                     <input
                       type="text"
@@ -359,14 +359,14 @@ export default function Contact() {
                       className={inputClass}
                       style={{
                         ...inputStyle,
-                        borderColor: errors.subject ? "rgba(239,68,68,0.5)" : "rgba(99,102,241,0.15)",
+                        borderColor: errors.subject ? "rgba(239,68,68,0.5)" : "rgba(34,197,94,0.15)",
                       }}
                       onFocus={(e) => {
-                        e.currentTarget.style.borderColor = "rgba(99,102,241,0.5)";
-                        e.currentTarget.style.boxShadow = "0 0 0 3px rgba(99,102,241,0.08)";
+                        e.currentTarget.style.borderColor = "rgba(34,197,94,0.5)";
+                        e.currentTarget.style.boxShadow = "0 0 0 3px rgba(34,197,94,0.08)";
                       }}
                       onBlur={(e) => {
-                        e.currentTarget.style.borderColor = errors.subject ? "rgba(239,68,68,0.5)" : "rgba(99,102,241,0.15)";
+                        e.currentTarget.style.borderColor = errors.subject ? "rgba(239,68,68,0.5)" : "rgba(34,197,94,0.15)";
                         e.currentTarget.style.boxShadow = "";
                       }}
                     />
@@ -377,8 +377,8 @@ export default function Contact() {
 
                   {/* Message */}
                   <div>
-                    <label className="text-xs text-slate-400 mb-1.5 block">
-                      Message <span style={{ color: "#6366f1" }}>*</span>
+                    <label className="text-xs mb-1.5 block" style={{ color: "#94a3b8" }}>
+                      Message <span style={{ color: "#22c55e" }}>*</span>
                     </label>
                     <textarea
                       name="message"
@@ -389,14 +389,14 @@ export default function Contact() {
                       className={`${inputClass} resize-none`}
                       style={{
                         ...inputStyle,
-                        borderColor: errors.message ? "rgba(239,68,68,0.5)" : "rgba(99,102,241,0.15)",
+                        borderColor: errors.message ? "rgba(239,68,68,0.5)" : "rgba(34,197,94,0.15)",
                       }}
                       onFocus={(e) => {
-                        e.currentTarget.style.borderColor = "rgba(99,102,241,0.5)";
-                        e.currentTarget.style.boxShadow = "0 0 0 3px rgba(99,102,241,0.08)";
+                        e.currentTarget.style.borderColor = "rgba(34,197,94,0.5)";
+                        e.currentTarget.style.boxShadow = "0 0 0 3px rgba(34,197,94,0.08)";
                       }}
                       onBlur={(e) => {
-                        e.currentTarget.style.borderColor = errors.message ? "rgba(239,68,68,0.5)" : "rgba(99,102,241,0.15)";
+                        e.currentTarget.style.borderColor = errors.message ? "rgba(239,68,68,0.5)" : "rgba(34,197,94,0.15)";
                         e.currentTarget.style.boxShadow = "";
                       }}
                     />
@@ -414,19 +414,19 @@ export default function Contact() {
                     className="w-full flex items-center justify-center gap-2.5 py-4 rounded-xl font-semibold text-sm text-white transition-all duration-300"
                     style={{
                       background: submitting
-                        ? "rgba(99,102,241,0.5)"
-                        : "linear-gradient(135deg, #3730a3, #4f46e5, #6366f1)",
-                      boxShadow: submitting ? "none" : "0 0 25px rgba(99,102,241,0.35)",
+                        ? "rgba(34,197,94,0.5)"
+                        : "linear-gradient(135deg, #15803d, #16a34a, #22c55e)",
+                      boxShadow: submitting ? "none" : "0 0 25px rgba(34,197,94,0.35)",
                       cursor: submitting ? "not-allowed" : "pointer",
                     }}
                     onMouseEnter={(e) => {
                       if (!submitting) {
-                        e.currentTarget.style.boxShadow = "0 0 40px rgba(99,102,241,0.55), 0 8px 25px rgba(99,102,241,0.3)";
+                        e.currentTarget.style.boxShadow = "0 0 40px rgba(34,197,94,0.55), 0 8px 25px rgba(34,197,94,0.3)";
                       }
                     }}
                     onMouseLeave={(e) => {
                       if (!submitting) {
-                        e.currentTarget.style.boxShadow = "0 0 25px rgba(99,102,241,0.35)";
+                        e.currentTarget.style.boxShadow = "0 0 25px rgba(34,197,94,0.35)";
                       }
                     }}
                   >

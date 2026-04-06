@@ -9,7 +9,7 @@ const CATEGORIES: Record<
 > = {
   frontend: {
     label: "Frontend",
-    color: "#6366f1",
+    color: "#22c55e",
     skills: [
       { name: "React",         level: 95 },
       { name: "TypeScript",    level: 90 },
@@ -92,8 +92,8 @@ export default function Skills() {
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(99,102,241,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(99,102,241,0.03) 1px, transparent 1px)
+            linear-gradient(rgba(34,197,94,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(34,197,94,0.03) 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
         }}
@@ -101,14 +101,14 @@ export default function Skills() {
       <div
         className="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(34,197,94,0.05) 0%, transparent 70%)",
           filter: "blur(80px)",
         }}
       />
       <div
         className="absolute right-0 bottom-1/4 w-[400px] h-[400px] rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(16,185,129,0.05) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(16,185,129,0.04) 0%, transparent 70%)",
           filter: "blur(80px)",
         }}
       />
@@ -125,7 +125,7 @@ export default function Skills() {
         >
           <p
             className="text-xs font-mono tracking-widest uppercase mb-4"
-            style={{ color: "#6366f1" }}
+            style={{ color: "#22c55e" }}
           >
             What I work with
           </p>
@@ -136,7 +136,7 @@ export default function Skills() {
             <span className="text-white">My </span>
             <span
               style={{
-                background: "linear-gradient(135deg, #818cf8, #34d399)",
+                background: "linear-gradient(135deg, #4ade80, #22c55e)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -147,7 +147,7 @@ export default function Skills() {
           </h2>
           <div
             className="w-14 h-1 mx-auto rounded-full"
-            style={{ background: "linear-gradient(90deg, #4f46e5, #10b981)" }}
+            style={{ background: "linear-gradient(90deg, #16a34a, #22c55e)" }}
           />
         </motion.div>
 
@@ -168,9 +168,9 @@ export default function Skills() {
                 whileTap={{ scale: 0.96 }}
                 className="relative px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300"
                 style={{
-                  color: active === key ? c.color : "#475569",
+                  color: active === key ? c.color : "#94a3b8",
                   background: active === key ? `${c.color}12` : "transparent",
-                  border: `1px solid ${active === key ? `${c.color}35` : "rgba(255,255,255,0.06)"}`,
+                  border: `1px solid ${active === key ? `${c.color}35` : "rgba(255,255,255,0.08)"}`,
                 }}
               >
                 {c.label}
@@ -202,13 +202,13 @@ export default function Skills() {
                 <div className="flex items-center gap-4 mb-4">
                   <span
                     className="text-[10px] font-mono uppercase tracking-[0.18em] flex-shrink-0"
-                    style={{ color: "#334155" }}
+                    style={{ color: "#64748b" }}
                   >
                     {tier.label}
                   </span>
                   <div
                     className="h-px flex-1"
-                    style={{ background: "rgba(255,255,255,0.04)" }}
+                    style={{ background: "rgba(255,255,255,0.06)" }}
                   />
                 </div>
 
@@ -256,11 +256,11 @@ export default function Skills() {
           className="mt-16 text-center"
         >
           <div className="flex items-center gap-4 max-w-xl mx-auto mb-5">
-            <div className="h-px flex-1" style={{ background: "rgba(255,255,255,0.04)" }} />
-            <p className="text-[10px] font-mono text-slate-500 tracking-[0.18em] uppercase flex-shrink-0">
+            <div className="h-px flex-1" style={{ background: "rgba(255,255,255,0.06)" }} />
+            <p className="text-[10px] font-mono tracking-[0.18em] uppercase flex-shrink-0" style={{ color: "#64748b" }}>
               Also familiar with
             </p>
-            <div className="h-px flex-1" style={{ background: "rgba(255,255,255,0.04)" }} />
+            <div className="h-px flex-1" style={{ background: "rgba(255,255,255,0.06)" }} />
           </div>
           <div className="flex flex-wrap justify-center gap-2 max-w-2xl mx-auto">
             {FAMILIAR.map((tech, i) => (
@@ -273,17 +273,17 @@ export default function Skills() {
                 whileHover={{ scale: 1.07 }}
                 className="px-3 py-1.5 text-xs rounded-lg cursor-default transition-all duration-200"
                 style={{
-                  color: "#334155",
-                  background: "rgba(255,255,255,0.02)",
-                  border: "1px solid rgba(255,255,255,0.05)",
+                  color: "#64748b",
+                  background: "rgba(255,255,255,0.03)",
+                  border: "1px solid rgba(255,255,255,0.07)",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "#64748b";
-                  e.currentTarget.style.borderColor = "rgba(99,102,241,0.18)";
+                  e.currentTarget.style.color = "#94a3b8";
+                  e.currentTarget.style.borderColor = "rgba(34,197,94,0.2)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "#334155";
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)";
+                  e.currentTarget.style.color = "#64748b";
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)";
                 }}
               >
                 {tech}

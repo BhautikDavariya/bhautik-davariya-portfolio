@@ -52,8 +52,8 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
         style={
           isScrolled
             ? {
-                background: "rgba(5, 6, 14, 0.85)",
-                borderColor: "rgba(139, 92, 246, 0.12)",
+                background: "rgba(6, 10, 6, 0.85)",
+                borderColor: "rgba(34, 197, 94, 0.12)",
               }
             : {}
         }
@@ -67,17 +67,17 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
             className="flex items-center gap-2.5 group"
           >
             <div
-              className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.5)]"
+              className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(34,197,94,0.5)]"
               style={{
-                background: "linear-gradient(135deg, #4f46e5, #10b981)",
+                background: "linear-gradient(135deg, #16a34a, #22c55e)",
               }}
             >
               <Code2 className="w-4 h-4 text-white" />
             </div>
             <span className="font-mono text-lg font-bold tracking-tight">
-              <span style={{ color: "#818cf8" }}>&lt;</span>
+              <span style={{ color: "#22c55e" }}>&lt;</span>
               <span className="text-white">Bhautik</span>
-              <span style={{ color: "#34d399" }}> /&gt;</span>
+              <span style={{ color: "#4ade80" }}> /&gt;</span>
             </span>
           </motion.button>
 
@@ -91,10 +91,10 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
                 whileTap={{ y: 0 }}
                 className="relative px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
                 style={{
-                  color: activeSection === item.id ? "#818cf8" : "#64748b",
+                  color: activeSection === item.id ? "#4ade80" : "#94a3b8",
                 }}
               >
-                <span className="font-mono text-[10px] mr-1" style={{ color: "#6366f150" }}>
+                <span className="font-mono text-[10px] mr-1" style={{ color: "rgba(34,197,94,0.3)" }}>
                   {item.num}.
                 </span>
                 {item.label}
@@ -103,8 +103,8 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
                     layoutId="navActive"
                     className="absolute inset-0 rounded-lg"
                     style={{
-                      background: "rgba(139, 92, 246, 0.1)",
-                      border: "1px solid rgba(139, 92, 246, 0.2)",
+                      background: "rgba(34, 197, 94, 0.1)",
+                      border: "1px solid rgba(34, 197, 94, 0.2)",
                     }}
                     initial={false}
                     transition={{ type: "spring", stiffness: 350, damping: 30 }}
@@ -122,18 +122,18 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
               whileTap={{ scale: 0.96 }}
               className="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300"
               style={{
-                color: "#818cf8",
-                border: "1px solid rgba(139, 92, 246, 0.3)",
+                color: "#4ade80",
+                border: "1px solid rgba(34, 197, 94, 0.3)",
                 background: "transparent",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(139, 92, 246, 0.1)";
-                e.currentTarget.style.borderColor = "rgba(139, 92, 246, 0.55)";
-                e.currentTarget.style.boxShadow = "0 0 20px rgba(139, 92, 246, 0.2)";
+                e.currentTarget.style.background = "rgba(34, 197, 94, 0.1)";
+                e.currentTarget.style.borderColor = "rgba(34, 197, 94, 0.55)";
+                e.currentTarget.style.boxShadow = "0 0 20px rgba(34, 197, 94, 0.2)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "transparent";
-                e.currentTarget.style.borderColor = "rgba(139, 92, 246, 0.3)";
+                e.currentTarget.style.borderColor = "rgba(34, 197, 94, 0.3)";
                 e.currentTarget.style.boxShadow = "";
               }}
             >
@@ -189,9 +189,9 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="md:hidden overflow-hidden border-t"
               style={{
-                background: "rgba(5, 6, 14, 0.96)",
+                background: "rgba(6, 10, 6, 0.96)",
                 backdropFilter: "blur(20px)",
-                borderColor: "rgba(139, 92, 246, 0.12)",
+                borderColor: "rgba(34, 197, 94, 0.12)",
               }}
             >
               <div className="px-4 py-4 space-y-1">
@@ -204,18 +204,18 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
                     onClick={() => scrollTo(item.id)}
                     className="w-full text-left py-3 px-4 rounded-xl flex items-center gap-3 transition-all duration-200"
                     style={{
-                      color: activeSection === item.id ? "#818cf8" : "#64748b",
+                      color: activeSection === item.id ? "#4ade80" : "#94a3b8",
                       background:
                         activeSection === item.id
-                          ? "rgba(139, 92, 246, 0.1)"
+                          ? "rgba(34, 197, 94, 0.1)"
                           : "transparent",
                       border:
                         activeSection === item.id
-                          ? "1px solid rgba(139, 92, 246, 0.2)"
+                          ? "1px solid rgba(34, 197, 94, 0.2)"
                           : "1px solid transparent",
                     }}
                   >
-                    <span className="font-mono text-[10px] text-violet-700">{item.num}</span>
+                    <span className="font-mono text-[10px] text-green-700">{item.num}</span>
                     <span className="font-medium text-sm">{item.label}</span>
                   </motion.button>
                 ))}
@@ -226,8 +226,8 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
                   onClick={openResume}
                   className="w-full flex items-center justify-center gap-2 py-3 px-4 mt-2 rounded-xl text-sm font-medium transition-all"
                   style={{
-                    color: "#818cf8",
-                    border: "1px solid rgba(139, 92, 246, 0.3)",
+                    color: "#4ade80",
+                    border: "1px solid rgba(34, 197, 94, 0.3)",
                   }}
                 >
                   <Download className="w-4 h-4" />
