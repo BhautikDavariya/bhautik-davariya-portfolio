@@ -9,7 +9,7 @@ const CATEGORIES: Record<
 > = {
   frontend: {
     label: "Frontend",
-    color: "#22c55e",
+    color: "var(--brand-1)",
     skills: [
       { name: "React",         level: 95 },
       { name: "TypeScript",    level: 90 },
@@ -25,7 +25,7 @@ const CATEGORIES: Record<
   },
   backend: {
     label: "Backend",
-    color: "#10b981",
+    color: "var(--brand-6)",
     skills: [
       { name: "Node.js",    level: 90 },
       { name: "REST APIs",  level: 92 },
@@ -92,8 +92,8 @@ export default function Skills() {
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(34,197,94,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(34,197,94,0.03) 1px, transparent 1px)
+            linear-gradient(rgba(var(--brand-rgb),0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(var(--brand-rgb),0.03) 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
         }}
@@ -101,14 +101,14 @@ export default function Skills() {
       <div
         className="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(34,197,94,0.05) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(var(--brand-rgb),0.05) 0%, transparent 70%)",
           filter: "blur(80px)",
         }}
       />
       <div
         className="absolute right-0 bottom-1/4 w-[400px] h-[400px] rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(16,185,129,0.04) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(var(--brand-rgb),0.04) 0%, transparent 70%)",
           filter: "blur(80px)",
         }}
       />
@@ -125,7 +125,7 @@ export default function Skills() {
         >
           <p
             className="text-xs font-mono tracking-widest uppercase mb-4"
-            style={{ color: "#22c55e" }}
+            style={{ color: "var(--brand-1)" }}
           >
             What I work with
           </p>
@@ -133,10 +133,10 @@ export default function Skills() {
             className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
           >
-            <span className="text-white">My </span>
+            <span style={{ color: "var(--text-strong)" }}>My </span>
             <span
               style={{
-                background: "linear-gradient(135deg, #4ade80, #22c55e)",
+                background: "linear-gradient(135deg, var(--brand-2), var(--brand-1))",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -147,7 +147,7 @@ export default function Skills() {
           </h2>
           <div
             className="w-14 h-1 mx-auto rounded-full"
-            style={{ background: "linear-gradient(90deg, #16a34a, #22c55e)" }}
+            style={{ background: "linear-gradient(90deg, var(--brand-4), var(--brand-1))" }}
           />
         </motion.div>
 
@@ -168,9 +168,9 @@ export default function Skills() {
                 whileTap={{ scale: 0.96 }}
                 className="relative px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300"
                 style={{
-                  color: active === key ? c.color : "#94a3b8",
-                  background: active === key ? `${c.color}12` : "transparent",
-                  border: `1px solid ${active === key ? `${c.color}35` : "rgba(255,255,255,0.08)"}`,
+                  color: active === key ? c.color : "var(--text-muted)",
+                  background: active === key ? `color-mix(in srgb, ${c.color} 8%, transparent)` : "transparent",
+                  border: `1px solid ${active === key ? `color-mix(in srgb, ${c.color} 22%, transparent)` : "var(--border-base)"}`,
                 }}
               >
                 {c.label}
@@ -202,13 +202,13 @@ export default function Skills() {
                 <div className="flex items-center gap-4 mb-4">
                   <span
                     className="text-[10px] font-mono uppercase tracking-[0.18em] flex-shrink-0"
-                    style={{ color: "#64748b" }}
+                    style={{ color: "var(--text-dim)" }}
                   >
                     {tier.label}
                   </span>
                   <div
                     className="h-px flex-1"
-                    style={{ background: "rgba(255,255,255,0.06)" }}
+                    style={{ background: "var(--border-soft)" }}
                   />
                 </div>
 
@@ -223,18 +223,18 @@ export default function Skills() {
                       whileHover={{ y: -2, scale: 1.04 }}
                       className="px-4 py-2 rounded-xl text-sm font-medium cursor-default transition-all duration-200"
                       style={{
-                        background: `${cat.color}0e`,
-                        border: `1px solid ${cat.color}22`,
+                        background: `color-mix(in srgb, ${cat.color} 6%, transparent)`,
+                        border: `1px solid color-mix(in srgb, ${cat.color} 14%, transparent)`,
                         color: cat.color,
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.background = `${cat.color}1c`;
-                        e.currentTarget.style.borderColor = `${cat.color}45`;
-                        e.currentTarget.style.boxShadow = `0 0 16px ${cat.color}1a`;
+                        e.currentTarget.style.background = `color-mix(in srgb, ${cat.color} 12%, transparent)`;
+                        e.currentTarget.style.borderColor = `color-mix(in srgb, ${cat.color} 28%, transparent)`;
+                        e.currentTarget.style.boxShadow = `0 0 16px color-mix(in srgb, ${cat.color} 10%, transparent)`;
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.background = `${cat.color}0e`;
-                        e.currentTarget.style.borderColor = `${cat.color}22`;
+                        e.currentTarget.style.background = `color-mix(in srgb, ${cat.color} 6%, transparent)`;
+                        e.currentTarget.style.borderColor = `color-mix(in srgb, ${cat.color} 14%, transparent)`;
                         e.currentTarget.style.boxShadow = "";
                       }}
                     >
@@ -256,11 +256,11 @@ export default function Skills() {
           className="mt-16 text-center"
         >
           <div className="flex items-center gap-4 max-w-xl mx-auto mb-5">
-            <div className="h-px flex-1" style={{ background: "rgba(255,255,255,0.06)" }} />
-            <p className="text-[10px] font-mono tracking-[0.18em] uppercase flex-shrink-0" style={{ color: "#64748b" }}>
+            <div className="h-px flex-1" style={{ background: "var(--border-soft)" }} />
+            <p className="text-[10px] font-mono tracking-[0.18em] uppercase flex-shrink-0" style={{ color: "var(--text-dim)" }}>
               Also familiar with
             </p>
-            <div className="h-px flex-1" style={{ background: "rgba(255,255,255,0.06)" }} />
+            <div className="h-px flex-1" style={{ background: "var(--border-soft)" }} />
           </div>
           <div className="flex flex-wrap justify-center gap-2 max-w-2xl mx-auto">
             {FAMILIAR.map((tech, i) => (
@@ -273,17 +273,17 @@ export default function Skills() {
                 whileHover={{ scale: 1.07 }}
                 className="px-3 py-1.5 text-xs rounded-lg cursor-default transition-all duration-200"
                 style={{
-                  color: "#64748b",
-                  background: "rgba(255,255,255,0.03)",
-                  border: "1px solid rgba(255,255,255,0.07)",
+                  color: "var(--text-dim)",
+                  background: "var(--hover-white-overlay)",
+                  border: "1px solid var(--border-base)",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "#94a3b8";
-                  e.currentTarget.style.borderColor = "rgba(34,197,94,0.2)";
+                  e.currentTarget.style.color = "var(--text-muted)";
+                  e.currentTarget.style.borderColor = "var(--border-brand)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "#64748b";
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)";
+                  e.currentTarget.style.color = "var(--text-dim)";
+                  e.currentTarget.style.borderColor = "var(--border-base)";
                 }}
               >
                 {tech}

@@ -29,22 +29,22 @@ const HIGHLIGHTS = [
     Icon: Code2,
     title: "Frontend Development",
     desc: "Responsive, interactive UIs with React, TypeScript, and modern CSS frameworks.",
-    color: "#22c55e",
-    bg: "rgba(34,197,94,0.1)",
+    color: "var(--brand-1)",
+    bg: "rgba(var(--brand-rgb),0.1)",
   },
   {
     Icon: Server,
     title: "Backend Development",
     desc: "Robust REST APIs with Node.js, Express, and MongoDB at scale.",
-    color: "#10b981",
-    bg: "rgba(16,185,129,0.1)",
+    color: "var(--brand-6)",
+    bg: "rgba(var(--brand-rgb),0.1)",
   },
   {
     Icon: Globe,
     title: "Full Stack Solutions",
     desc: "End-to-end application development from concept to production.",
-    color: "#4ade80",
-    bg: "rgba(74,222,128,0.1)",
+    color: "var(--brand-2)",
+    bg: "rgba(var(--brand-rgb),0.1)",
   },
   {
     Icon: Bot,
@@ -81,7 +81,7 @@ export default function About() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(34,197,94,0.08) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(var(--brand-rgb),0.08) 1px, transparent 1px)",
           backgroundSize: "30px 30px",
           opacity: 0.4,
         }}
@@ -90,7 +90,7 @@ export default function About() {
       <div
         className="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(34,197,94,0.06) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(var(--brand-rgb),0.06) 0%, transparent 70%)",
           filter: "blur(80px)",
         }}
       />
@@ -106,7 +106,7 @@ export default function About() {
         >
           <p
             className="text-xs font-mono tracking-widest uppercase mb-4"
-            style={{ color: "#22c55e" }}
+            style={{ color: "var(--brand-1)" }}
           >
             Get to know me
           </p>
@@ -114,10 +114,10 @@ export default function About() {
             className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
           >
-            <span className="text-white">About </span>
+            <span style={{ color: "var(--text-strong)" }}>About </span>
             <span
               style={{
-                background: "linear-gradient(135deg, #4ade80, #22c55e)",
+                background: "linear-gradient(135deg, var(--brand-2), var(--brand-1))",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -128,7 +128,7 @@ export default function About() {
           </h2>
           <div
             className="w-14 h-1 mx-auto rounded-full"
-            style={{ background: "linear-gradient(90deg, #16a34a, #22c55e)" }}
+            style={{ background: "linear-gradient(90deg, var(--brand-4), var(--brand-1))" }}
           />
         </motion.div>
 
@@ -148,7 +148,7 @@ export default function About() {
                 className="absolute -inset-4 rounded-3xl opacity-30"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(34,197,94,0.3), rgba(16,185,129,0.2))",
+                    "linear-gradient(135deg, rgba(var(--brand-rgb),0.3), rgba(var(--brand-rgb),0.2))",
                   filter: "blur(20px)",
                 }}
               />
@@ -156,20 +156,19 @@ export default function About() {
               {/* Image */}
               <div
                 className="relative rounded-2xl overflow-hidden"
-                style={{ border: "1px solid rgba(34,197,94,0.25)" }}
+                style={{ border: "1px solid var(--border-brand)" }}
               >
                 <div
                   className="absolute inset-0 z-10 pointer-events-none"
                   style={{
-                    background:
-                      "linear-gradient(to bottom, transparent 60%, rgba(6,10,6,0.6))",
+                    background: "var(--overlay-image-fade)",
                   }}
                 />
                 <img
                   src={meImage}
                   alt="Bhautik Davariya"
                   className="w-full object-cover"
-                  style={{ filter: "brightness(0.92) contrast(1.05)" }}
+                  style={{ filter: "var(--img-filter)" }}
                 />
               </div>
 
@@ -178,7 +177,7 @@ export default function About() {
                 className="absolute inset-0 rounded-2xl pointer-events-none"
                 style={{
                   boxShadow:
-                    "0 0 60px rgba(34,197,94,0.15), 0 0 120px rgba(34,197,94,0.05)",
+                    "0 0 60px rgba(var(--brand-rgb),0.15), 0 0 120px rgba(var(--brand-rgb),0.05)",
                 }}
               />
 
@@ -190,18 +189,18 @@ export default function About() {
                 transition={{ delay: 0.75 }}
                 className="absolute -top-5 -right-5 px-5 py-3 rounded-xl backdrop-blur-sm"
                 style={{
-                  background: "rgba(8,12,8,0.92)",
-                  border: "1px solid rgba(34,197,94,0.3)",
-                  boxShadow: "0 0 30px rgba(34,197,94,0.12)",
+                  background: "var(--surface-2-strong)",
+                  border: "1px solid var(--border-brand-strong)",
+                  boxShadow: "0 0 30px rgba(var(--brand-rgb),0.12)",
                 }}
               >
                 <div
                   className="text-2xl font-bold"
-                  style={{ color: "#4ade80" }}
+                  style={{ color: "var(--brand-2)" }}
                 >
                   {years.count}+
                 </div>
-                <div className="text-xs" style={{ color: "#94a3b8" }}>Years Exp.</div>
+                <div className="text-xs" style={{ color: "var(--text-muted)" }}>Years Exp.</div>
               </motion.div>
 
               {/* Projects badge */}
@@ -212,18 +211,18 @@ export default function About() {
                 transition={{ delay: 0.9 }}
                 className="absolute -bottom-5 -left-5 px-5 py-3 rounded-xl backdrop-blur-sm"
                 style={{
-                  background: "rgba(8,12,8,0.92)",
-                  border: "1px solid rgba(16,185,129,0.3)",
-                  boxShadow: "0 0 30px rgba(16,185,129,0.12)",
+                  background: "var(--surface-2-strong)",
+                  border: "1px solid var(--border-brand-strong)",
+                  boxShadow: "0 0 30px rgba(var(--brand-rgb),0.12)",
                 }}
               >
                 <div
                   className="text-2xl font-bold"
-                  style={{ color: "#22c55e" }}
+                  style={{ color: "var(--brand-1)" }}
                 >
                   {projects.count}+
                 </div>
-                <div className="text-xs" style={{ color: "#94a3b8" }}>Projects Done</div>
+                <div className="text-xs" style={{ color: "var(--text-muted)" }}>Projects Done</div>
               </motion.div>
             </div>
           </motion.div>
@@ -237,13 +236,13 @@ export default function About() {
             className="space-y-5"
           >
             <h3
-              className="text-2xl lg:text-3xl font-bold text-white leading-snug"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              className="text-2xl lg:text-3xl font-bold leading-snug"
+              style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text-strong)" }}
             >
               Passionate about creating{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #4ade80, #22c55e)",
+                  background: "linear-gradient(135deg, var(--brand-2), var(--brand-1))",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -253,24 +252,24 @@ export default function About() {
               </span>
             </h3>
 
-            <p className="leading-relaxed" style={{ color: "#94a3b8" }}>
+            <p className="leading-relaxed" style={{ color: "var(--text-muted)" }}>
               I'm a dedicated Full Stack Developer with over 3 years of experience in the
               MERN stack. I love turning complex problems into simple, beautiful, and
               intuitive solutions that people enjoy using.
             </p>
 
-            <p className="leading-relaxed" style={{ color: "#94a3b8" }}>
+            <p className="leading-relaxed" style={{ color: "var(--text-muted)" }}>
               My journey started with curiosity about how things work on the web. Since
               then, I've been constantly evolving — leveraging AI tools like{" "}
-              <span style={{ color: "#4ade80" }}>Cursor</span> and{" "}
-              <span style={{ color: "#22c55e" }}>Claude</span> to accelerate development,
+              <span style={{ color: "var(--brand-2)" }}>Cursor</span> and{" "}
+              <span style={{ color: "var(--brand-1)" }}>Claude</span> to accelerate development,
               write smarter code, and deliver real impact faster.
             </p>
 
-            <p className="leading-relaxed" style={{ color: "#94a3b8" }}>
-              Currently working with companies like <span style={{ color: "#4ade80" }}>SMIXIT Solutions</span>,{" "}
-              <span style={{ color: "#22c55e" }}>INFYOM Technologies</span>,{" "}
-              <span style={{ color: "#10b981" }}>NETIZENS Technologies</span>, and{" "}
+            <p className="leading-relaxed" style={{ color: "var(--text-muted)" }}>
+              Currently working with companies like <span style={{ color: "var(--brand-2)" }}>SMIXIT Solutions</span>,{" "}
+              <span style={{ color: "var(--brand-1)" }}>INFYOM Technologies</span>,{" "}
+              <span style={{ color: "var(--brand-6)" }}>NETIZENS Technologies</span>, and{" "}
               <span style={{ color: "#fbbf24" }}>Sensussoft Software Pvt. Ltd.</span>, delivering
               production-ready full-stack applications across diverse industries.
             </p>
@@ -287,9 +286,9 @@ export default function About() {
                   whileHover={{ scale: 1.06 }}
                   className="px-3 py-1.5 rounded-lg text-xs font-medium cursor-default"
                   style={{
-                    background: "rgba(34,197,94,0.08)",
-                    border: "1px solid rgba(34,197,94,0.2)",
-                    color: "#4ade80",
+                    background: "var(--brand-fill-light)",
+                    border: "1px solid var(--border-brand)",
+                    color: "var(--brand-2)",
                   }}
                 >
                   {tech}
@@ -311,16 +310,16 @@ export default function About() {
               whileHover={{ y: -6 }}
               className="p-6 rounded-2xl cursor-default transition-all duration-300 shimmer-border"
               style={{
-                background: "rgba(8,12,8,0.6)",
-                border: "1px solid rgba(34,197,94,0.1)",
+                background: "var(--surface-2)",
+                border: "1px solid var(--border-brand-soft)",
                 backdropFilter: "blur(20px)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = `${h.color}35`;
-                e.currentTarget.style.boxShadow = `0 20px 40px rgba(0,0,0,0.4), 0 0 30px ${h.color}18`;
+                e.currentTarget.style.borderColor = `color-mix(in srgb, ${h.color} 22%, transparent)`;
+                e.currentTarget.style.boxShadow = `var(--shadow-card-hover), 0 0 30px color-mix(in srgb, ${h.color} 10%, transparent)`;
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(34,197,94,0.1)";
+                e.currentTarget.style.borderColor = "var(--border-brand-soft)";
                 e.currentTarget.style.boxShadow = "";
               }}
             >
@@ -331,12 +330,12 @@ export default function About() {
                 <h.Icon className="w-5 h-5" style={{ color: h.color }} />
               </div>
               <h4
-                className="font-semibold text-sm text-white mb-2"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                className="font-semibold text-sm mb-2"
+                style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text-strong)" }}
               >
                 {h.title}
               </h4>
-              <p className="text-xs leading-relaxed" style={{ color: "#94a3b8" }}>
+              <p className="text-xs leading-relaxed" style={{ color: "var(--text-muted)" }}>
                 {h.desc}
               </p>
             </motion.div>

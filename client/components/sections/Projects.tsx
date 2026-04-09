@@ -28,7 +28,7 @@ const PROJECTS: Project[] = [
     category: "fullstack",
     githubUrl: "https://github.com/BhautikDavariya",
     stats: { duration: "4 months", team: "3 developers", lines: "30k+ lines" },
-    accent: "#22c55e",
+    accent: "var(--brand-1)",
   },
   {
     id: 2,
@@ -40,7 +40,7 @@ const PROJECTS: Project[] = [
     category: "fullstack",
     githubUrl: "https://github.com/BhautikDavariya",
     stats: { duration: "6 months", team: "4 developers", lines: "50k+ lines" },
-    accent: "#10b981",
+    accent: "var(--brand-6)",
   },
   {
     id: 3,
@@ -64,7 +64,7 @@ const PROJECTS: Project[] = [
     category: "fullstack",
     githubUrl: "https://github.com/BhautikDavariya",
     stats: { duration: "5 months", team: "3 developers", lines: "35k+ lines" },
-    accent: "#4ade80",
+    accent: "var(--brand-2)",
   },
   {
     id: 5,
@@ -100,7 +100,7 @@ const PROJECTS: Project[] = [
     category: "fullstack",
     githubUrl: "https://github.com/BhautikDavariya",
     stats: { duration: "7 months", team: "5 developers", lines: "60k+ lines" },
-    accent: "#22c55e",
+    accent: "var(--brand-1)",
   },
   {
     id: 8,
@@ -112,7 +112,7 @@ const PROJECTS: Project[] = [
     category: "fullstack",
     githubUrl: "https://github.com/BhautikDavariya",
     stats: { duration: "5 months", team: "4 developers", lines: "45k+ lines" },
-    accent: "#10b981",
+    accent: "var(--brand-6)",
   },
   {
     id: 9,
@@ -147,7 +147,7 @@ export default function Projects() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(34,197,94,0.06) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(var(--brand-rgb),0.06) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
           opacity: 0.5,
         }}
@@ -155,7 +155,7 @@ export default function Projects() {
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(34,197,94,0.04) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(var(--brand-rgb),0.04) 0%, transparent 70%)",
           filter: "blur(80px)",
         }}
       />
@@ -169,17 +169,17 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <p className="text-xs font-mono tracking-widest uppercase mb-4" style={{ color: "#22c55e" }}>
+          <p className="text-xs font-mono tracking-widest uppercase mb-4" style={{ color: "var(--brand-1)" }}>
             What I've built
           </p>
           <h2
             className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
           >
-            <span className="text-white">Featured </span>
+            <span style={{ color: "var(--text-strong)" }}>Featured </span>
             <span
               style={{
-                background: "linear-gradient(135deg, #4ade80, #22c55e)",
+                background: "linear-gradient(135deg, var(--brand-2), var(--brand-1))",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -190,7 +190,7 @@ export default function Projects() {
           </h2>
           <div
             className="w-14 h-1 mx-auto rounded-full"
-            style={{ background: "linear-gradient(90deg, #16a34a, #22c55e)" }}
+            style={{ background: "linear-gradient(90deg, var(--brand-4), var(--brand-1))" }}
           />
         </motion.div>
 
@@ -210,9 +210,9 @@ export default function Projects() {
               whileTap={{ scale: 0.96 }}
               className="relative px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300"
               style={{
-                color: filter === f.key ? "#4ade80" : "#94a3b8",
-                background: filter === f.key ? "rgba(34,197,94,0.1)" : "transparent",
-                border: `1px solid ${filter === f.key ? "rgba(34,197,94,0.35)" : "rgba(255,255,255,0.08)"}`,
+                color: filter === f.key ? "var(--brand-2)" : "var(--text-muted)",
+                background: filter === f.key ? "var(--brand-fill)" : "transparent",
+                border: `1px solid ${filter === f.key ? "var(--border-brand-strong)" : "var(--border-base)"}`,
               }}
             >
               {f.label}
@@ -220,7 +220,7 @@ export default function Projects() {
                 <motion.div
                   layoutId="projectFilter"
                   className="absolute inset-0 rounded-xl pointer-events-none"
-                  style={{ border: "1px solid rgba(34,197,94,0.4)" }}
+                  style={{ border: "1px solid var(--border-brand-strong)" }}
                 />
               )}
             </motion.button>
@@ -244,16 +244,16 @@ export default function Projects() {
                 whileHover={{ y: -6 }}
                 className="group rounded-2xl overflow-hidden transition-all duration-400 cursor-default flex flex-col shimmer-border"
                 style={{
-                  background: "rgba(8,12,8,0.7)",
-                  border: "1px solid rgba(34,197,94,0.1)",
+                  background: "var(--surface-2)",
+                  border: "1px solid var(--border-brand-soft)",
                   backdropFilter: "blur(20px)",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = `${project.accent}35`;
-                  e.currentTarget.style.boxShadow = `0 20px 50px rgba(0,0,0,0.5), 0 0 30px ${project.accent}18`;
+                  e.currentTarget.style.borderColor = `color-mix(in srgb, ${project.accent} 22%, transparent)`;
+                  e.currentTarget.style.boxShadow = `var(--shadow-card-hover), 0 0 30px color-mix(in srgb, ${project.accent} 10%, transparent)`;
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(34,197,94,0.1)";
+                  e.currentTarget.style.borderColor = "var(--border-brand-soft)";
                   e.currentTarget.style.boxShadow = "";
                 }}
               >
@@ -261,7 +261,7 @@ export default function Projects() {
                 <div
                   className="h-0.5 w-full"
                   style={{
-                    background: `linear-gradient(90deg, ${project.accent}, ${project.accent}50, transparent)`,
+                    background: `linear-gradient(90deg, ${project.accent}, color-mix(in srgb, ${project.accent} 30%, transparent), transparent)`,
                   }}
                 />
 
@@ -276,8 +276,8 @@ export default function Projects() {
 
                   {/* Title */}
                   <h3
-                    className="text-lg font-bold text-white mb-3 leading-snug"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    className="text-lg font-bold mb-3 leading-snug"
+                    style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text-strong)" }}
                   >
                     {project.title}
                   </h3>
@@ -285,7 +285,7 @@ export default function Projects() {
                   {/* Description */}
                   <p
                     className="text-sm leading-relaxed mb-5 flex-1"
-                    style={{ color: "#94a3b8" }}
+                    style={{ color: "var(--text-muted)" }}
                   >
                     {project.description}
                   </p>
@@ -297,9 +297,9 @@ export default function Projects() {
                         key={tag}
                         className="px-2.5 py-1 text-[10px] rounded-md font-medium"
                         style={{
-                          background: `${project.accent}12`,
+                          background: `color-mix(in srgb, ${project.accent} 8%, transparent)`,
                           color: project.accent,
-                          border: `1px solid ${project.accent}25`,
+                          border: `1px solid color-mix(in srgb, ${project.accent} 16%, transparent)`,
                         }}
                       >
                         {tag}
@@ -310,7 +310,7 @@ export default function Projects() {
                   {/* Stats row */}
                   <div
                     className="flex items-center gap-4 text-[10px] mb-5 py-3 px-4 rounded-xl"
-                    style={{ background: "rgba(255,255,255,0.03)", color: "#64748b" }}
+                    style={{ background: "var(--hover-white-overlay)", color: "var(--text-dim)" }}
                   >
                     <span className="flex items-center gap-1.5">
                       <Calendar className="w-3 h-3" />
@@ -336,18 +336,18 @@ export default function Projects() {
                       whileTap={{ scale: 0.96 }}
                       className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium transition-all duration-300 flex-1 justify-center"
                       style={{
-                        color: "#94a3b8",
-                        border: "1px solid rgba(255,255,255,0.08)",
+                        color: "var(--text-muted)",
+                        border: "1px solid var(--border-base)",
                         background: "transparent",
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.color = "#fff";
-                        e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
-                        e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+                        e.currentTarget.style.color = "var(--text-strong)";
+                        e.currentTarget.style.borderColor = "var(--border-stronger)";
+                        e.currentTarget.style.background = "var(--hover-white-overlay)";
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.color = "#94a3b8";
-                        e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                        e.currentTarget.style.color = "var(--text-muted)";
+                        e.currentTarget.style.borderColor = "var(--border-base)";
                         e.currentTarget.style.background = "transparent";
                       }}
                     >
@@ -365,8 +365,8 @@ export default function Projects() {
                         className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium transition-all duration-300"
                         style={{
                           color: project.accent,
-                          border: `1px solid ${project.accent}30`,
-                          background: `${project.accent}10`,
+                          border: `1px solid color-mix(in srgb, ${project.accent} 19%, transparent)`,
+                          background: `color-mix(in srgb, ${project.accent} 6%, transparent)`,
                         }}
                       >
                         <ExternalLink className="w-3.5 h-3.5" />
@@ -388,7 +388,7 @@ export default function Projects() {
           transition={{ delay: 0.3 }}
           className="text-center mt-14"
         >
-          <p className="text-sm mb-5" style={{ color: "#94a3b8" }}>
+          <p className="text-sm mb-5" style={{ color: "var(--text-muted)" }}>
             Want to see more? Check out my GitHub profile.
           </p>
           <motion.a
@@ -399,18 +399,18 @@ export default function Projects() {
             whileTap={{ scale: 0.96 }}
             className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl font-medium text-sm transition-all duration-300"
             style={{
-              color: "#4ade80",
-              border: "1px solid rgba(34,197,94,0.3)",
+              color: "var(--brand-2)",
+              border: "1px solid var(--border-brand-strong)",
               background: "transparent",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgba(34,197,94,0.1)";
-              e.currentTarget.style.borderColor = "rgba(34,197,94,0.55)";
-              e.currentTarget.style.boxShadow = "0 0 25px rgba(34,197,94,0.2)";
+              e.currentTarget.style.background = "var(--brand-fill)";
+              e.currentTarget.style.borderColor = "var(--border-brand-stronger)";
+              e.currentTarget.style.boxShadow = "0 0 25px rgba(var(--brand-rgb),0.2)";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = "transparent";
-              e.currentTarget.style.borderColor = "rgba(34,197,94,0.3)";
+              e.currentTarget.style.borderColor = "var(--border-brand-strong)";
               e.currentTarget.style.boxShadow = "";
             }}
           >

@@ -8,24 +8,24 @@ const CONTACT_INFO = [
     label: "Email",
     value: "bhautikmerndevelopers@gmail.com",
     href: "mailto:bhautikmerndevelopers@gmail.com",
-    color: "#22c55e",
-    bg: "rgba(34,197,94,0.1)",
+    color: "var(--brand-1)",
+    bg: "rgba(var(--brand-rgb),0.1)",
   },
   {
     Icon: Phone,
     label: "Phone",
     value: "+91 9904656110",
     href: "tel:+919904656110",
-    color: "#10b981",
-    bg: "rgba(16,185,129,0.1)",
+    color: "var(--brand-6)",
+    bg: "rgba(var(--brand-rgb),0.1)",
   },
   {
     Icon: MapPin,
     label: "Location",
     value: "Surat, Gujarat, India",
     href: "https://www.google.com/maps/place/Surat,+Gujarat",
-    color: "#4ade80",
-    bg: "rgba(74,222,128,0.1)",
+    color: "var(--brand-2)",
+    bg: "rgba(var(--brand-rgb),0.1)",
   },
 ];
 
@@ -34,19 +34,19 @@ const SOCIAL = [
     Icon: Github,
     label: "GitHub",
     href: "https://github.com/BhautikDavariya",
-    color: "#4ade80",
+    color: "var(--brand-2)",
   },
   {
     Icon: Linkedin,
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/bhautik-davariya-15b2b722a/",
-    color: "#22c55e",
+    color: "var(--brand-1)",
   },
   {
     Icon: Mail,
     label: "Email",
     href: "mailto:bhautikmerndevelopers@gmail.com",
-    color: "#10b981",
+    color: "var(--brand-6)",
   },
 ];
 
@@ -91,12 +91,13 @@ export default function Contact() {
     }
   };
 
-  const inputClass = "w-full px-4 py-3.5 rounded-xl text-sm text-white bg-transparent outline-none transition-all duration-300";
+  const inputClass = "w-full px-4 py-3.5 rounded-xl text-sm bg-transparent outline-none transition-all duration-300";
   const inputStyle = {
-    background: "rgba(255,255,255,0.03)",
-    border: "1px solid rgba(34,197,94,0.15)",
-    color: "#f1f5f9",
+    background: "var(--hover-white-overlay)",
+    border: "1px solid var(--border-brand-soft)",
+    color: "var(--text-base)",
   };
+  const inputBorderDefault = "var(--border-brand-soft)";
 
   return (
     <section id="contact" className="py-24 lg:py-32 relative overflow-hidden">
@@ -105,8 +106,8 @@ export default function Contact() {
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(34,197,94,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(34,197,94,0.03) 1px, transparent 1px)
+            linear-gradient(rgba(var(--brand-rgb),0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(var(--brand-rgb),0.03) 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
         }}
@@ -114,7 +115,7 @@ export default function Contact() {
       <div
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse, rgba(34,197,94,0.06) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgba(var(--brand-rgb),0.06) 0%, transparent 70%)",
           filter: "blur(80px)",
         }}
       />
@@ -128,17 +129,17 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-xs font-mono tracking-widest uppercase mb-4" style={{ color: "#22c55e" }}>
+          <p className="text-xs font-mono tracking-widest uppercase mb-4" style={{ color: "var(--brand-1)" }}>
             Let's work together
           </p>
           <h2
             className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
           >
-            <span className="text-white">Get In </span>
+            <span style={{ color: "var(--text-strong)" }}>Get In </span>
             <span
               style={{
-                background: "linear-gradient(135deg, #4ade80, #22c55e)",
+                background: "linear-gradient(135deg, var(--brand-2), var(--brand-1))",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -149,9 +150,9 @@ export default function Contact() {
           </h2>
           <div
             className="w-14 h-1 mx-auto rounded-full mb-6"
-            style={{ background: "linear-gradient(90deg, #16a34a, #22c55e)" }}
+            style={{ background: "linear-gradient(90deg, var(--brand-4), var(--brand-1))" }}
           />
-          <p className="max-w-xl mx-auto text-sm leading-relaxed" style={{ color: "#94a3b8" }}>
+          <p className="max-w-xl mx-auto text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
             Have a project in mind or just want to say hello? I'd love to hear from you.
             I'm currently open to new opportunities.
           </p>
@@ -168,12 +169,12 @@ export default function Contact() {
           >
             <div>
               <h3
-                className="text-xl font-bold text-white mb-2"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                className="text-xl font-bold mb-2"
+                style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text-strong)" }}
               >
                 Contact Information
               </h3>
-              <p className="text-sm" style={{ color: "#94a3b8" }}>
+              <p className="text-sm" style={{ color: "var(--text-muted)" }}>
                 Reach out through any of these channels and I'll get back to you within 24 hours.
               </p>
             </div>
@@ -191,16 +192,16 @@ export default function Contact() {
                 whileHover={{ x: 4 }}
                 className="flex items-center gap-4 p-4 rounded-xl transition-all duration-300 group"
                 style={{
-                  background: "rgba(8,12,8,0.5)",
-                  border: "1px solid rgba(34,197,94,0.1)",
+                  background: "var(--surface-2)",
+                  border: "1px solid var(--border-brand-soft)",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = `${c.color}30`;
-                  e.currentTarget.style.background = "rgba(8,12,8,0.8)";
+                  e.currentTarget.style.borderColor = `color-mix(in srgb, ${c.color} 19%, transparent)`;
+                  e.currentTarget.style.background = "var(--surface-2-strong)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(34,197,94,0.1)";
-                  e.currentTarget.style.background = "rgba(8,12,8,0.5)";
+                  e.currentTarget.style.borderColor = "var(--border-brand-soft)";
+                  e.currentTarget.style.background = "var(--surface-2)";
                 }}
               >
                 <div
@@ -210,8 +211,8 @@ export default function Contact() {
                   <c.Icon className="w-4 h-4" style={{ color: c.color }} />
                 </div>
                 <div>
-                  <div className="text-xs mb-0.5" style={{ color: "#94a3b8" }}>{c.label}</div>
-                  <div className="text-sm text-slate-200 font-medium group-hover:text-white transition-colors">
+                  <div className="text-xs mb-0.5" style={{ color: "var(--text-muted)" }}>{c.label}</div>
+                  <div className="text-sm font-medium transition-colors" style={{ color: "var(--text-soft)" }}>
                     {c.value}
                   </div>
                 </div>
@@ -224,7 +225,7 @@ export default function Contact() {
 
             {/* Social links */}
             <div className="pt-2">
-              <p className="text-xs mb-3" style={{ color: "#94a3b8" }}>Find me on</p>
+              <p className="text-xs mb-3" style={{ color: "var(--text-muted)" }}>Find me on</p>
               <div className="flex gap-3">
                 {SOCIAL.map((s) => (
                   <motion.a
@@ -236,19 +237,19 @@ export default function Contact() {
                     whileTap={{ scale: 0.92 }}
                     className="p-3 rounded-xl transition-all duration-300"
                     style={{
-                      border: "1px solid rgba(255,255,255,0.08)",
-                      background: "rgba(255,255,255,0.03)",
-                      color: "#64748b",
+                      border: "1px solid var(--border-base)",
+                      background: "var(--hover-white-overlay)",
+                      color: "var(--text-dim)",
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.color = s.color;
-                      e.currentTarget.style.borderColor = `${s.color}35`;
-                      e.currentTarget.style.background = `${s.color}10`;
+                      e.currentTarget.style.borderColor = `color-mix(in srgb, ${s.color} 22%, transparent)`;
+                      e.currentTarget.style.background = `color-mix(in srgb, ${s.color} 6%, transparent)`;
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.color = "#64748b";
-                      e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
-                      e.currentTarget.style.background = "rgba(255,255,255,0.03)";
+                      e.currentTarget.style.color = "var(--text-dim)";
+                      e.currentTarget.style.borderColor = "var(--border-base)";
+                      e.currentTarget.style.background = "var(--hover-white-overlay)";
                     }}
                     aria-label={s.label}
                   >
@@ -270,8 +271,8 @@ export default function Contact() {
             <div
               className="p-8 rounded-2xl"
               style={{
-                background: "rgba(8,12,8,0.65)",
-                border: "1px solid rgba(34,197,94,0.12)",
+                background: "var(--surface-2)",
+                border: "1px solid var(--border-brand-soft)",
                 backdropFilter: "blur(20px)",
               }}
             >
@@ -286,14 +287,14 @@ export default function Contact() {
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 200, damping: 14 }}
                     className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5"
-                    style={{ background: "rgba(34,197,94,0.15)" }}
+                    style={{ background: "rgba(var(--brand-rgb),0.15)" }}
                   >
-                    <CheckCircle2 className="w-8 h-8" style={{ color: "#22c55e" }} />
+                    <CheckCircle2 className="w-8 h-8" style={{ color: "var(--brand-1)" }} />
                   </motion.div>
-                  <h4 className="text-xl font-bold text-white mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                  <h4 className="text-xl font-bold mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text-strong)" }}>
                     Message Sent!
                   </h4>
-                  <p className="text-sm" style={{ color: "#94a3b8" }}>
+                  <p className="text-sm" style={{ color: "var(--text-muted)" }}>
                     Thanks for reaching out. I'll get back to you within 24 hours.
                   </p>
                   <motion.button
@@ -302,8 +303,8 @@ export default function Contact() {
                     whileTap={{ scale: 0.96 }}
                     className="mt-6 px-6 py-2.5 rounded-xl text-sm font-medium transition-all"
                     style={{
-                      color: "#4ade80",
-                      border: "1px solid rgba(34,197,94,0.3)",
+                      color: "var(--brand-2)",
+                      border: "1px solid var(--border-brand-strong)",
                     }}
                   >
                     Send Another
@@ -315,8 +316,8 @@ export default function Contact() {
                   <div className="grid sm:grid-cols-2 gap-4">
                     {(["name", "email"] as const).map((field) => (
                       <div key={field}>
-                        <label className="text-xs mb-1.5 block capitalize" style={{ color: "#94a3b8" }}>
-                          {field} <span style={{ color: "#22c55e" }}>*</span>
+                        <label className="text-xs mb-1.5 block capitalize" style={{ color: "var(--text-muted)" }}>
+                          {field} <span style={{ color: "var(--brand-1)" }}>*</span>
                         </label>
                         <input
                           type={field === "email" ? "email" : "text"}
@@ -327,14 +328,14 @@ export default function Contact() {
                           className={inputClass}
                           style={{
                             ...inputStyle,
-                            borderColor: errors[field] ? "rgba(239,68,68,0.5)" : inputStyle.border.replace("1px solid ", ""),
+                            borderColor: errors[field] ? "rgba(239,68,68,0.5)" : inputBorderDefault,
                           }}
                           onFocus={(e) => {
-                            e.currentTarget.style.borderColor = "rgba(34,197,94,0.5)";
-                            e.currentTarget.style.boxShadow = "0 0 0 3px rgba(34,197,94,0.08)";
+                            e.currentTarget.style.borderColor = "rgba(var(--brand-rgb),0.5)";
+                            e.currentTarget.style.boxShadow = "0 0 0 3px rgba(var(--brand-rgb),0.08)";
                           }}
                           onBlur={(e) => {
-                            e.currentTarget.style.borderColor = errors[field] ? "rgba(239,68,68,0.5)" : "rgba(34,197,94,0.15)";
+                            e.currentTarget.style.borderColor = errors[field] ? "rgba(239,68,68,0.5)" : inputBorderDefault;
                             e.currentTarget.style.boxShadow = "";
                           }}
                         />
@@ -347,8 +348,8 @@ export default function Contact() {
 
                   {/* Subject */}
                   <div>
-                    <label className="text-xs mb-1.5 block" style={{ color: "#94a3b8" }}>
-                      Subject <span style={{ color: "#22c55e" }}>*</span>
+                    <label className="text-xs mb-1.5 block" style={{ color: "var(--text-muted)" }}>
+                      Subject <span style={{ color: "var(--brand-1)" }}>*</span>
                     </label>
                     <input
                       type="text"
@@ -359,14 +360,14 @@ export default function Contact() {
                       className={inputClass}
                       style={{
                         ...inputStyle,
-                        borderColor: errors.subject ? "rgba(239,68,68,0.5)" : "rgba(34,197,94,0.15)",
+                        borderColor: errors.subject ? "rgba(239,68,68,0.5)" : inputBorderDefault,
                       }}
                       onFocus={(e) => {
-                        e.currentTarget.style.borderColor = "rgba(34,197,94,0.5)";
-                        e.currentTarget.style.boxShadow = "0 0 0 3px rgba(34,197,94,0.08)";
+                        e.currentTarget.style.borderColor = "rgba(var(--brand-rgb),0.5)";
+                        e.currentTarget.style.boxShadow = "0 0 0 3px rgba(var(--brand-rgb),0.08)";
                       }}
                       onBlur={(e) => {
-                        e.currentTarget.style.borderColor = errors.subject ? "rgba(239,68,68,0.5)" : "rgba(34,197,94,0.15)";
+                        e.currentTarget.style.borderColor = errors.subject ? "rgba(239,68,68,0.5)" : inputBorderDefault;
                         e.currentTarget.style.boxShadow = "";
                       }}
                     />
@@ -377,8 +378,8 @@ export default function Contact() {
 
                   {/* Message */}
                   <div>
-                    <label className="text-xs mb-1.5 block" style={{ color: "#94a3b8" }}>
-                      Message <span style={{ color: "#22c55e" }}>*</span>
+                    <label className="text-xs mb-1.5 block" style={{ color: "var(--text-muted)" }}>
+                      Message <span style={{ color: "var(--brand-1)" }}>*</span>
                     </label>
                     <textarea
                       name="message"
@@ -389,14 +390,14 @@ export default function Contact() {
                       className={`${inputClass} resize-none`}
                       style={{
                         ...inputStyle,
-                        borderColor: errors.message ? "rgba(239,68,68,0.5)" : "rgba(34,197,94,0.15)",
+                        borderColor: errors.message ? "rgba(239,68,68,0.5)" : inputBorderDefault,
                       }}
                       onFocus={(e) => {
-                        e.currentTarget.style.borderColor = "rgba(34,197,94,0.5)";
-                        e.currentTarget.style.boxShadow = "0 0 0 3px rgba(34,197,94,0.08)";
+                        e.currentTarget.style.borderColor = "rgba(var(--brand-rgb),0.5)";
+                        e.currentTarget.style.boxShadow = "0 0 0 3px rgba(var(--brand-rgb),0.08)";
                       }}
                       onBlur={(e) => {
-                        e.currentTarget.style.borderColor = errors.message ? "rgba(239,68,68,0.5)" : "rgba(34,197,94,0.15)";
+                        e.currentTarget.style.borderColor = errors.message ? "rgba(239,68,68,0.5)" : inputBorderDefault;
                         e.currentTarget.style.boxShadow = "";
                       }}
                     />
@@ -411,22 +412,23 @@ export default function Contact() {
                     disabled={submitting}
                     whileHover={!submitting ? { scale: 1.02, y: -1 } : {}}
                     whileTap={!submitting ? { scale: 0.97 } : {}}
-                    className="w-full flex items-center justify-center gap-2.5 py-4 rounded-xl font-semibold text-sm text-white transition-all duration-300"
+                    className="w-full flex items-center justify-center gap-2.5 py-4 rounded-xl font-semibold text-sm transition-all duration-300"
                     style={{
+                      color: "#ffffff",
                       background: submitting
-                        ? "rgba(34,197,94,0.5)"
-                        : "linear-gradient(135deg, #15803d, #16a34a, #22c55e)",
-                      boxShadow: submitting ? "none" : "0 0 25px rgba(34,197,94,0.35)",
+                        ? "rgba(var(--brand-rgb),0.5)"
+                        : "linear-gradient(135deg, var(--brand-5), var(--brand-4), var(--brand-1))",
+                      boxShadow: submitting ? "none" : "0 0 25px rgba(var(--brand-rgb),0.35)",
                       cursor: submitting ? "not-allowed" : "pointer",
                     }}
                     onMouseEnter={(e) => {
                       if (!submitting) {
-                        e.currentTarget.style.boxShadow = "0 0 40px rgba(34,197,94,0.55), 0 8px 25px rgba(34,197,94,0.3)";
+                        e.currentTarget.style.boxShadow = "0 0 40px rgba(var(--brand-rgb),0.55), 0 8px 25px rgba(var(--brand-rgb),0.3)";
                       }
                     }}
                     onMouseLeave={(e) => {
                       if (!submitting) {
-                        e.currentTarget.style.boxShadow = "0 0 25px rgba(34,197,94,0.35)";
+                        e.currentTarget.style.boxShadow = "0 0 25px rgba(var(--brand-rgb),0.35)";
                       }
                     }}
                   >

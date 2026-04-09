@@ -9,12 +9,6 @@ interface PortfolioLayoutProps {
 const PortfolioLayout = ({ children }: PortfolioLayoutProps) => {
   const [activeSection, setActiveSection] = useState("home");
 
-  // Always dark mode — no toggle
-  useEffect(() => {
-    document.documentElement.classList.add("dark");
-    document.documentElement.style.colorScheme = "dark";
-  }, []);
-
   // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {

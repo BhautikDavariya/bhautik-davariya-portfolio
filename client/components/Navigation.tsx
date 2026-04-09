@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download, Code2 } from "lucide-react";
+import { Menu, X, Download, Code2, Sun, Moon } from "lucide-react";
+import { useTheme } from "@/hooks/use-theme";
 
 interface NavigationProps {
   activeSection: string;
@@ -18,6 +19,7 @@ const navItems = [
 const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 30);
@@ -52,8 +54,8 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
         style={
           isScrolled
             ? {
-                background: "rgba(6, 10, 6, 0.85)",
-                borderColor: "rgba(34, 197, 94, 0.12)",
+                background: "var(--surface-1)",
+                borderColor: "var(--border-brand-soft)",
               }
             : {}
         }
@@ -67,17 +69,17 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
             className="flex items-center gap-2.5 group"
           >
             <div
-              className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(34,197,94,0.5)]"
+              className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(var(--brand-rgb),0.5)]"
               style={{
-                background: "linear-gradient(135deg, #16a34a, #22c55e)",
+                background: "linear-gradient(135deg, var(--brand-4), var(--brand-1))",
               }}
             >
               <Code2 className="w-4 h-4 text-white" />
             </div>
             <span className="font-mono text-lg font-bold tracking-tight">
-              <span style={{ color: "#22c55e" }}>&lt;</span>
-              <span className="text-white">Bhautik</span>
-              <span style={{ color: "#4ade80" }}> /&gt;</span>
+              <span style={{ color: "var(--brand-1)" }}>&lt;</span>
+              <span style={{ color: "var(--text-strong)" }}>Bhautik</span>
+              <span style={{ color: "var(--brand-2)" }}> /&gt;</span>
             </span>
           </motion.button>
 
@@ -91,10 +93,10 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
                 whileTap={{ y: 0 }}
                 className="relative px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
                 style={{
-                  color: activeSection === item.id ? "#4ade80" : "#94a3b8",
+                  color: activeSection === item.id ? "var(--brand-2)" : "var(--text-muted)",
                 }}
               >
-                <span className="font-mono text-[10px] mr-1" style={{ color: "rgba(34,197,94,0.3)" }}>
+                <span className="font-mono text-[10px] mr-1" style={{ color: "rgba(var(--brand-rgb),0.3)" }}>
                   {item.num}.
                 </span>
                 {item.label}
@@ -103,8 +105,8 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
                     layoutId="navActive"
                     className="absolute inset-0 rounded-lg"
                     style={{
-                      background: "rgba(34, 197, 94, 0.1)",
-                      border: "1px solid rgba(34, 197, 94, 0.2)",
+                      background: "rgba(var(--brand-rgb), 0.1)",
+                      border: "1px solid rgba(var(--brand-rgb), 0.2)",
                     }}
                     initial={false}
                     transition={{ type: "spring", stiffness: 350, damping: 30 }}
@@ -116,24 +118,62 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
 
           {/* Resume button */}
           <div className="flex items-center gap-3">
+            {/* Theme toggle */}
+            <motion.button
+              onClick={toggleTheme}
+              whileHover={{ scale: 1.08, rotate: 12 }}
+              whileTap={{ scale: 0.92 }}
+              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+              className="w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-200"
+              style={{
+                color: "var(--brand-2)",
+                border: "1px solid var(--border-brand-strong)",
+                background: "var(--brand-fill-light)",
+              }}
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                {theme === "dark" ? (
+                  <motion.div
+                    key="sun"
+                    initial={{ rotate: -90, opacity: 0, scale: 0.6 }}
+                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                    exit={{ rotate: 90, opacity: 0, scale: 0.6 }}
+                    transition={{ duration: 0.25 }}
+                  >
+                    <Sun className="w-4 h-4" />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="moon"
+                    initial={{ rotate: 90, opacity: 0, scale: 0.6 }}
+                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                    exit={{ rotate: -90, opacity: 0, scale: 0.6 }}
+                    transition={{ duration: 0.25 }}
+                  >
+                    <Moon className="w-4 h-4" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.button>
+
             <motion.button
               onClick={openResume}
               whileHover={{ scale: 1.04, y: -1 }}
               whileTap={{ scale: 0.96 }}
               className="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300"
               style={{
-                color: "#4ade80",
-                border: "1px solid rgba(34, 197, 94, 0.3)",
+                color: "var(--brand-2)",
+                border: "1px solid var(--border-brand-strong)",
                 background: "transparent",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(34, 197, 94, 0.1)";
-                e.currentTarget.style.borderColor = "rgba(34, 197, 94, 0.55)";
-                e.currentTarget.style.boxShadow = "0 0 20px rgba(34, 197, 94, 0.2)";
+                e.currentTarget.style.background = "var(--brand-fill)";
+                e.currentTarget.style.borderColor = "var(--border-brand-stronger)";
+                e.currentTarget.style.boxShadow = "0 0 20px rgba(var(--brand-rgb), 0.2)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "transparent";
-                e.currentTarget.style.borderColor = "rgba(34, 197, 94, 0.3)";
+                e.currentTarget.style.borderColor = "var(--border-brand-strong)";
                 e.currentTarget.style.boxShadow = "";
               }}
             >
@@ -148,8 +188,8 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
               whileTap={{ scale: 0.95 }}
               className="md:hidden p-2 rounded-lg transition-all duration-200"
               style={{
-                border: "1px solid rgba(100, 116, 139, 0.3)",
-                color: "#94a3b8",
+                border: "1px solid var(--border-slate)",
+                color: "var(--text-muted)",
               }}
             >
               <AnimatePresence mode="wait" initial={false}>
@@ -189,9 +229,9 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="md:hidden overflow-hidden border-t"
               style={{
-                background: "rgba(6, 10, 6, 0.96)",
+                background: "var(--surface-1-solid)",
                 backdropFilter: "blur(20px)",
-                borderColor: "rgba(34, 197, 94, 0.12)",
+                borderColor: "var(--border-brand-soft)",
               }}
             >
               <div className="px-4 py-4 space-y-1">
@@ -204,14 +244,14 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
                     onClick={() => scrollTo(item.id)}
                     className="w-full text-left py-3 px-4 rounded-xl flex items-center gap-3 transition-all duration-200"
                     style={{
-                      color: activeSection === item.id ? "#4ade80" : "#94a3b8",
+                      color: activeSection === item.id ? "var(--brand-2)" : "var(--text-muted)",
                       background:
                         activeSection === item.id
-                          ? "rgba(34, 197, 94, 0.1)"
+                          ? "var(--brand-fill)"
                           : "transparent",
                       border:
                         activeSection === item.id
-                          ? "1px solid rgba(34, 197, 94, 0.2)"
+                          ? "1px solid var(--border-brand)"
                           : "1px solid transparent",
                     }}
                   >
@@ -226,8 +266,8 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
                   onClick={openResume}
                   className="w-full flex items-center justify-center gap-2 py-3 px-4 mt-2 rounded-xl text-sm font-medium transition-all"
                   style={{
-                    color: "#4ade80",
-                    border: "1px solid rgba(34, 197, 94, 0.3)",
+                    color: "var(--brand-2)",
+                    border: "1px solid var(--border-brand-strong)",
                   }}
                 >
                   <Download className="w-4 h-4" />
